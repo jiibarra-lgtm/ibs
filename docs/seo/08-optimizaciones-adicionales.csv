@@ -1,0 +1,57 @@
+id,optimizacion,area,impacto,evidencia,dificultad,costo,prioridad,estado
+1,Enlazar las 11 páginas pilar desde footer y categorías,SEO técnico,Alto,Guía oficial de Google sobre enlaces internos,Baja,$0,Alta,Requiere autorización (A1)
+2,Declarar sitemap-seo.xml y sitemap-imagenes.xml en robots,SEO técnico,Medio,Protocolo sitemaps.org,Baja,$0,Alta,Requiere autorización (A2)
+3,Enviar los 3 sitemaps a Search Console y Bing,SEO técnico,Alto,Documentación de GSC y Bing Webmaster,Baja,$0,Alta,Acción externa
+4,Verificar dominio en Search Console por DNS,Medición,Alto,Documentación de GSC,Baja,$0,Alta,Acción externa
+5,Verificar sitio en Bing Webmaster Tools (importar desde GSC),Medición,Medio,Documentación de Bing,Baja,$0,Alta,Acción externa
+6,Ejecutar IndexNow tras cada deploy,SEO técnico,Medio,"indexnow.org (Bing, Yandex; no Google)",Baja,$0,Media,Implementado (script)
+7,Activar GA4 + GTM con Consent Mode v2,Medición,Alto,Documentación de Google Analytics,Baja,$0,Alta,Requiere autorización (A3)
+8,Marcar como conversión solicitud_cotizacion y click_whatsapp,Medición,Alto,Documentación de GA4,Baja,$0,Alta,Pendiente de A3
+9,Medir referencias desde asistentes de IA,GEO,Medio,"Referrer de chatgpt.com, perplexity.ai, etc.",Baja,$0,Media,Implementado (sin conectar)
+10,Un solo H1 en la portada,SEO on-page,Medio,Buenas prácticas de jerarquía de encabezados,Baja,$0,Media,Requiere autorización (A4)
+11,Agregar un H1 en /catalogo,SEO on-page,Bajo,Buenas prácticas,Baja,$0,Baja,Requiere autorización (A4)
+12,Acortar 36 títulos de más de 65 caracteres,SEO on-page,Medio,Google trunca los títulos según el ancho en píxeles,Media,$0,Media,Requiere autorización (A5)
+13,Acortar 10 descripciones de más de 160 caracteres,SEO on-page,Bajo,Google trunca los snippets,Baja,$0,Media,Requiere autorización (A5)
+14,"BreadcrumbList en productos, categorías y guías",Datos estructurados,Medio,Google Search Central: breadcrumb,Baja,$0,Alta,Requiere autorización (A6)
+15,WebSite schema en layout,Datos estructurados,Bajo,schema.org,Baja,$0,Media,Requiere autorización (A6)
+16,PostalAddress completa + geo en WholesaleStore,SEO local,Alto,Google Search Central: local business,Baja,$0,Alta,Necesita dirección (A6)
+17,"ContactPoint (ventas, WhatsApp) en Organization",Datos estructurados,Bajo,schema.org,Baja,$0,Media,Requiere autorización (A6)
+18,sameAs con perfiles oficiales,GEO,Medio,Entidades y Knowledge Graph,Baja,$0,Media,Necesita URLs de redes
+19,Product.offers cuando haya precios públicos,Datos estructurados,Alto,Google: merchant listings requiere price,Media,$0,Media,Decisión comercial
+20,Product.url y Product.sku en fichas,Datos estructurados,Bajo,schema.org,Baja,$0,Baja,Requiere autorización (A6)
+21,Article.dateModified y author en guías,Datos estructurados,Bajo,Google: article,Baja,$0,Baja,Requiere autorización (A6)
+22,Migrar fuentes a next/font,Core Web Vitals,Medio,web.dev: LCP y CLS,Baja,$0,Media,Requiere autorización (A8)
+23,Alt descriptivo en imágenes de kits y carrusel,SEO imágenes,Medio,Google Imágenes: buenas prácticas,Baja,$0,Media,Requiere autorización (A9)
+24,Sitemap de imágenes,SEO imágenes,Bajo,Google: image sitemaps,Baja,$0,Media,Implementado
+25,noindex en /catalogo (versión imprimible),SEO técnico,Bajo,Contenido duplicado,Baja,$0,Baja,Requiere autorización (A10)
+26,Mantener /promo/* con mensaje de próxima edición,SEO técnico,Medio,URLs estacionales que acumulan autoridad año a año,Baja,$0,Media,Requiere autorización (A10)
+27,11 páginas pilar por intención comercial,SEO on-page,Alto,Cobertura de búsquedas sin URL destino,Media,$0,Alta,Implementado
+28,Respuesta directa en el primer párrafo de cada pilar,AEO,Medio,Formato citable por motores de respuesta,Baja,$0,Alta,Implementado
+29,Tablas comparativas en HTML real,AEO,Medio,Extraíbles por buscadores e IA,Baja,$0,Media,Implementado
+30,llms.txt y llms-full.txt,GEO,Bajo,"Propuesta experimental, sin efecto comprobado en ranking",Baja,$0,Baja,Implementado
+31,Publicar 5 guías redactadas,Contenido,Medio,Cobertura de long-tail,Baja,$0,Alta,Requiere autorización (A7)
+32,Plan editorial de 100 artículos (2 por semana),Contenido,Alto,Cobertura temática,Alta,Tiempo,Alta,Plan entregado
+33,Fotos reales del depósito y fábrica en guías,E-E-A-T,Medio,Google: contenido útil y experiencia,Media,$0,Media,Acción externa
+34,Página de autor o equipo en guías,E-E-A-T,Bajo,Google: quién creó el contenido,Baja,$0,Baja,"Nueva funcionalidad, a evaluar"
+35,Google Business Profile completo,SEO local,Alto,"Factores locales: relevancia, distancia y prominencia",Baja,$0,Alta,Acción externa
+36,Pedir reseñas reales por WhatsApp postentrega,SEO local,Alto,Prominencia local,Baja,$0,Alta,Acción externa
+37,Publicaciones semanales en GBP con el calendario promo,SEO local,Medio,Actividad del perfil,Baja,$0,Media,Acción externa
+38,Bing Places y Apple Business Connect,SEO local,Bajo,Copilot y Apple Maps usan esas fuentes,Baja,$0,Media,Acción externa
+39,"NAP idéntico en web, ML, redes y directorios",SEO local,Medio,Consistencia de citaciones,Baja,$0,Alta,Acción externa
+40,Alta en directorios de fábricas de limpieza,Off-page,Medio,Competidores presentes allí,Baja,$0,Media,Acción externa
+41,Pedir enlace a proveedores (listado de distribuidores),Off-page,Medio,Enlaces temáticos legítimos,Media,$0,Media,Acción externa
+42,Recuperar menciones de marca sin enlace,Off-page,Bajo,Búsqueda de la marca en Google,Baja,$0,Baja,Acción externa
+43,Campaña de búsqueda Marca,SEM,Medio,"Protege la marca, CPC bajo",Baja,Presupuesto Ads,Alta,Requiere autorización + credenciales
+44,Campaña Mayorista y fabricante,SEM,Alto,Intención comercial alta,Media,Presupuesto Ads,Alta,Estructura entregada
+45,Campaña Dispensers y comodato,SEM,Alto,Ticket recurrente,Media,Presupuesto Ads,Alta,Estructura entregada
+46,Lista de negativas compartida,SEM,Alto,Evita clics de consumidor final,Baja,$0,Alta,Entregado
+47,Programación de anuncios L–V 8 a 17,SEM,Medio,Coincide con el horario de atención,Baja,$0,Media,Estructura entregada
+48,"Extensiones: llamada, ubicación, sitelinks a pilares",SEM,Medio,Mejora el CTR,Baja,$0,Alta,Estructura entregada
+49,Merchant Center + Shopping cuando haya precios,SEM,Alto,Requiere price y disponibilidad,Media,Presupuesto Ads,Media,Requisitos entregados
+50,Performance Max solo con conversiones medidas,SEM,Medio,Necesita señales de conversión,Media,Presupuesto Ads,Baja,Requisitos entregados
+51,Remarketing con Meta Pixel y consentimiento,SEM,Medio,Audiencias de visitantes,Baja,Presupuesto Ads,Baja,Requiere A3
+52,Keyword Planner para validar volúmenes del mapa,Investigación,Alto,No inventé volúmenes,Baja,$0,Alta,Acción externa
+53,Revisión mensual de consultas en GSC para nuevas FAQ,AEO,Medio,Consultas reales,Baja,$0,Media,Mantenimiento
+54,"Prueba mensual de visibilidad en ChatGPT, Gemini, Perplexity y Copilot",GEO,Medio,Medición manual,Baja,$0,Media,Mantenimiento
+55,Looker Studio con GSC + GA4,Medición,Medio,Reporte unificado,Media,$0,Media,Pendiente de credenciales
+56,Script de verificación SEO antes de cada deploy,Calidad,Medio,Evita regresiones,Baja,$0,Media,Implementado

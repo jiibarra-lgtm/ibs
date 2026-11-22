@@ -1,0 +1,44 @@
+{
+  "redes": {
+    "instagram": "",
+    "facebook": "",
+    "linkedin": "",
+    "mercadolibre": "",
+    "googleMaps": ""
+  },
+  "googleResenasUrl": "",
+  "equipo": [],
+  "clientes": [],
+  "hitos": [
+    { "anio": "1985", "titulo": "Nace Ibarra Insumos", "texto": "Empresa familiar dedicada a la distribución de productos de limpieza e higiene en Buenos Aires." },
+    { "anio": "+40 años", "titulo": "Hospitales, empresas y organismos públicos", "texto": "Abastecemos instituciones de salud, empresas, consorcios y organismos públicos de CABA y GBA, con reparto propio." },
+    { "anio": "Hoy", "titulo": "Fabricantes y distribuidores", "texto": "Sumamos fabricación propia: fabricamos la mayoría de los productos que vendemos y distribuimos el resto de la línea." }
+  ],
+  "novedades": [
+    {
+      "slug": "ahora-somos-fabricantes",
+      "fecha": "2026-11-20",
+      "titulo": "Ibarra Insumos ahora es fabricante y distribuidor",
+      "resumen": "Después de más de 40 años distribuyendo productos de limpieza, sumamos fabricación propia: precio directo de fábrica y calidad controlada en origen.",
+      "imagen": "/img/marca/planta.webp",
+      "texto": "Después de más de 40 años como distribuidores mayoristas de productos de limpieza e higiene institucional, en Ibarra Insumos dimos un paso grande: hoy **fabricamos la mayoría de los productos que vendemos** y distribuimos el resto de la línea.\n\nPara nuestros clientes esto significa precio directo de fábrica, calidad controlada en origen y más capacidad para abastecer pedidos grandes y entregas programadas.\n\nSeguimos con el mismo reparto propio en CABA y GBA y la misma atención de siempre."
+    },
+    {
+      "slug": "nueva-planta-y-deposito",
+      "fecha": "2026-11-20",
+      "titulo": "Así es nuestra planta y depósito",
+      "resumen": "Una vista aérea de la planta: producción, depósito y la flota de reparto propio que sale todos los días hacia CABA y GBA.",
+      "imagen": "/video/planta-poster.webp",
+      "video": "/video/planta.mp4",
+      "texto": "Les compartimos una vista aérea de nuestra planta y depósito. Desde acá preparamos cada pedido y sale nuestra flota de reparto propio hacia CABA, GBA y Provincia de Buenos Aires.\n\nSi sos cliente institucional y querés conocer la planta, escribinos y coordinamos una visita."
+    },
+    {
+      "slug": "nueva-web-cotizacion-online",
+      "fecha": "2026-11-20",
+      "titulo": "Nueva web: cotizá en minutos y compartí tu carrito",
+      "resumen": "Estrenamos web: kits por rubro, carga rápida de pedidos, pedido programado y ahora podés compartir tu carrito con un link.",
+      "imagen": "/img/marca/deposito.webp",
+      "texto": "Estrenamos una web pensada para compras institucionales:\n\n- **Kits por rubro** con descuento y cantidades ajustables.\n- **Carga rápida:** pegás tu lista y se arma la cotización.\n- **Pedido programado:** recibís lo mismo cada 15 días, mes o bimestre.\n- **Compartir carrito:** mandale la lista a quien tiene que aprobar la compra con un solo link.\n\nLa cotización sigue llegando por WhatsApp, con precios confirmados y descuentos aplicados."
+    }
+  ]
+}

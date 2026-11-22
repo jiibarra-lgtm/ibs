@@ -1,0 +1,120 @@
+[
+  {
+    "slug": "dispensers",
+    "nombre": "Dispensers",
+    "icono": "🧻",
+    "descripcion": "Dispensers de toallas, papel higiénico, jabón y alcohol en gel para baños institucionales. Disponibles en comodato para clientes con consumo regular.",
+    "intro": "Los dispensers ordenan el consumo de papel, jabón y alcohol en gel en los baños institucionales. Entregan la cantidad justa, se recargan rápido y mantienen el baño prolijo.\n\n## Dispensers en comodato\nSi comprás los insumos compatibles con nosotros, te prestamos los dispensers **en comodato**: los instalamos sin costo y nos ocupamos del mantenimiento. Así solo pagás el papel, el jabón o el alcohol en gel que usás.\n\n## Cómo elegir\nFijate qué insumo vas a usar (toalla intercalada, en rollo, papel jumbo, jabón líquido o alcohol en gel) y cuánto tránsito tiene el baño. En la página de compatibilidad podés ver qué recarga va con cada dispenser.",
+    "faqs": [
+      {
+        "q": "¿Los dispensers se pueden pedir en comodato?",
+        "a": "Sí. Si comprás los insumos compatibles con nosotros, los instalamos sin costo y hacemos el mantenimiento."
+      },
+      {
+        "q": "¿Cómo sé qué recarga va en cada dispenser?",
+        "a": "En la página de compatibilidad está la recarga de cada modelo. Si tenés dudas, mandanos una foto del dispenser por WhatsApp."
+      },
+      {
+        "q": "¿Hacen la instalación?",
+        "a": "Sí, en CABA y GBA coordinamos la instalación de los dispensers en comodato."
+      }
+    ]
+  },
+  {
+    "slug": "papeles",
+    "nombre": "Papeles",
+    "icono": "📜",
+    "descripcion": "Toallas intercaladas, bobinas, rollos y papel higiénico jumbo para hospitales, oficinas y espacios de alto tráfico.",
+    "intro": "Toallas intercaladas, bobinas, toallas en rollo y papel higiénico (tradicional y jumbo) en presentación mayorista para instituciones. Es la categoría que más se repone, por eso conviene comprarla por caja o programar la entrega.\n\n## Cómo elegir el papel\nElegí según el dispenser que tenés: las toallas intercaladas van en dispensers de toalla intercalada, la toalla en rollo en dispensers de rollo y el papel jumbo en dispensers jumbo. Para cocinas y talleres, la bobina con porta bobina es la opción más práctica.\n\n## Compra por mayor\nComprando por cantidad tenés descuentos de hasta 15%, y con el pedido programado te lo entregamos solo cada 15 días, todos los meses o cada 2 meses.",
+    "faqs": [
+      {
+        "q": "¿Venden el papel por caja o bulto?",
+        "a": "Sí, todos los papeles se venden en presentación mayorista por caja o bulto."
+      },
+      {
+        "q": "¿Qué papel conviene para un baño con mucho uso?",
+        "a": "El papel higiénico jumbo y la toalla en rollo o intercalada con dispenser, porque se reponen menos y reducen el desperdicio."
+      },
+      {
+        "q": "¿Puedo programar la entrega del papel?",
+        "a": "Sí, con el pedido programado lo recibís cada 15 días, todos los meses o cada 2 meses."
+      }
+    ]
+  },
+  {
+    "slug": "limpieza",
+    "nombre": "Limpieza",
+    "icono": "🧽",
+    "descripcion": "Lavandina, detergentes, limpiadores multiuso y limpiavidrios en presentaciones mayoristas.",
+    "intro": "Lavandina concentrada, detergente profesional, limpiadores multiuso, limpiavidrios y esponjas en presentaciones mayoristas.\n\n## Rendimiento\nLos productos concentrados se diluyen antes de usar: un bidón rinde muchos litros de solución lista. Para comparar precios, mirá cuánto rinde cada bidón y no solo su precio.\n\n## Seguridad\nNo mezcles productos de limpieza entre sí (por ejemplo, lavandina con detergentes o ácidos), usá guantes y ventilá el ambiente.",
+    "faqs": [
+      {
+        "q": "¿En qué presentaciones vienen?",
+        "a": "En presentaciones mayoristas, como bidones, para uso institucional."
+      },
+      {
+        "q": "¿Cómo comparo el rendimiento de la lavandina?",
+        "a": "Fijate la dilución que indica el rótulo y calculá cuántos litros de solución te rinde el bidón. Tenemos una guía que lo explica paso a paso."
+      }
+    ]
+  },
+  {
+    "slug": "limpieza-institucional",
+    "nombre": "Limpieza Institucional",
+    "icono": "🏥",
+    "descripcion": "Desengrasantes, cloro, escobillones, baldes y señalización para equipos de limpieza profesional.",
+    "intro": "Desengrasantes, cloro, escobillones, baldes, trapos de piso y señalización para equipos de limpieza profesional de hospitales, consorcios, escuelas e industrias.\n\n## Para el personal de limpieza\nUn equipo completo de limpieza institucional incluye productos químicos, elementos para pisos y señalización de seguridad. La señal de piso mojado es clave para prevenir accidentes en lugares con público.\n\n## Kits por rubro\nSi no sabés por dónde empezar, mirá los kits armados por tipo de institución: ya traen lo necesario y tienen descuento.",
+    "faqs": [
+      {
+        "q": "¿Qué necesita un equipo de limpieza institucional?",
+        "a": "Químicos (desengrasante, cloro, lavandina), elementos para pisos (escobillón, balde, trapo) y señalización de piso mojado."
+      },
+      {
+        "q": "¿El desengrasante sirve para cocinas industriales?",
+        "a": "Sí, está pensado para grasa adherida en campanas, planchas, hornos y pisos de cocinas."
+      },
+      {
+        "q": "¿Tienen kits armados?",
+        "a": "Sí, hay kits por rubro con descuento y cantidades ajustables."
+      }
+    ]
+  },
+  {
+    "slug": "higiene",
+    "nombre": "Higiene",
+    "icono": "🧴",
+    "descripcion": "Alcohol en gel, alcohol al 70%, jabones y artículos de higiene personal para instituciones.",
+    "intro": "Alcohol en gel, alcohol al 70%, jabones y artículos de higiene personal para instituciones. Para recargar dispensers, el bidón de 5 litros es la opción más económica.\n\n## Alcohol en gel o alcohol al 70%\nEl alcohol en gel se usa para la higiene de manos en dispensers; el alcohol al 70% líquido se aplica con pulverizador sobre superficies y no sirve para dispensers de gel.",
+    "faqs": [
+      {
+        "q": "¿El alcohol al 70% sirve para un dispenser de gel?",
+        "a": "No. Para dispensers de gel usá alcohol en gel; el alcohol al 70% líquido se aplica con pulverizador."
+      },
+      {
+        "q": "¿Tienen alcohol en gel para recargar?",
+        "a": "Sí, en bidón de 5 litros para recargar dispensers y frascos."
+      },
+      {
+        "q": "¿Venden jabón para dispensers?",
+        "a": "Consultanos por jabón líquido a granel compatible con tus dispensers."
+      }
+    ]
+  },
+  {
+    "slug": "descartables",
+    "nombre": "Descartables",
+    "icono": "🧤",
+    "descripcion": "Guantes y descartables para limpieza, gastronomía y salud.",
+    "intro": "Guantes y descartables para limpieza, gastronomía y salud. Los guantes de alta resistencia protegen al personal cuando usa productos químicos.",
+    "faqs": [
+      {
+        "q": "¿Qué guantes conviene usar con químicos?",
+        "a": "Los guantes industriales de alta resistencia, sobre todo con desengrasantes, cloro o lavandina."
+      },
+      {
+        "q": "¿Se venden por cantidad?",
+        "a": "Sí, en cantidades para uso institucional, con descuento por volumen."
+      }
+    ]
+  }
+]

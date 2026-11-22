@@ -1,0 +1,39 @@
+Campaign,Tipo,Texto,Caracteres,Válido (≤30 títulos / ≤90 descripciones)
+02 Mayorista y fabricante,Título,Productos de Limpieza x Mayor,29,sí
+02 Mayorista y fabricante,Título,Fabricantes y Distribuidores,28,sí
+02 Mayorista y fabricante,Título,Directo de Fábrica,18,sí
+02 Mayorista y fabricante,Título,Entrega en 24–48 hs,19,sí
+02 Mayorista y fabricante,Título,Factura A y B,13,sí
+02 Mayorista y fabricante,Título,Desde 1985 en Buenos Aires,26,sí
+02 Mayorista y fabricante,Título,Cotizá por WhatsApp,19,sí
+02 Mayorista y fabricante,Título,Sin Pedido Mínimo Fijo,22,sí
+02 Mayorista y fabricante,Título,Hasta 15% Off por Cantidad,26,sí
+02 Mayorista y fabricante,Título,Reparto Propio en CABA y GBA,28,sí
+02 Mayorista y fabricante,Título,Dispensers en Comodato,22,sí
+02 Mayorista y fabricante,Título,Proveedor del GCBA,18,sí
+02 Mayorista y fabricante,Título,Kits por Rubro con Descuento,28,sí
+02 Mayorista y fabricante,Título,"Financiación 30, 60 y 90 Días",29,sí
+02 Mayorista y fabricante,Título,Stock Permanente,16,sí
+02 Mayorista y fabricante,Descripción,Fabricantes y distribuidores de limpieza institucional. Precio directo y entrega 24–48 hs.,90,sí
+02 Mayorista y fabricante,Descripción,"Papeles, químicos, dispensers y descartables por mayor. Cotizá hoy por WhatsApp.",80,sí
+02 Mayorista y fabricante,Descripción,"Factura A y B, financiación para cuentas corrientes y dispensers en comodato.",77,sí
+02 Mayorista y fabricante,Descripción,"Más de 40 años abasteciendo hospitales, empresas, consorcios y organismos públicos.",83,sí
+03 Productos,Título,Toallas Intercaladas x Mayor,28,sí
+03 Productos,Título,Papel Higiénico Jumbo,21,sí
+03 Productos,Título,Lavandina Concentrada,21,sí
+03 Productos,Título,Fabricantes y Distribuidores,28,sí
+03 Productos,Título,Entrega en 24–48 hs,19,sí
+03 Productos,Título,Factura A y B,13,sí
+03 Productos,Título,Hasta 15% Off por Cantidad,26,sí
+03 Productos,Título,Cotizá por WhatsApp,19,sí
+03 Productos,Título,Precio Directo de Fábrica,25,sí
+03 Productos,Título,Reparto Propio en CABA y GBA,28,sí
+03 Productos,Título,Desde 1985,10,sí
+03 Productos,Título,Sin Pedido Mínimo Fijo,22,sí
+03 Productos,Título,Dispensers en Comodato,22,sí
+03 Productos,Título,Stock Permanente,16,sí
+03 Productos,Título,Pedido Programado Mensual,25,sí
+03 Productos,Descripción,Comprá directo a fabricantes y distribuidores. Descuento por cantidad automático.,81,sí
+03 Productos,Descripción,Entrega en 24 a 48 horas hábiles en CABA y GBA con reparto propio. Factura A y B.,81,sí
+03 Productos,Descripción,"Armá tu lista, mandala por WhatsApp y recibí precios mayoristas en el día.",74,sí
+03 Productos,Descripción,Kits por rubro con descuento y dispensers en comodato para clientes regulares.,78,sí

@@ -1,0 +1,876 @@
+{
+  "barraSuperior": {
+    "activa": true,
+    "mensajes": [
+      "🏭 Fabricantes y distribuidores: precio directo de fábrica",
+      "🚚 Envío gratis en compras desde $150.000",
+      "🚚 Entrega en 24–48 hs en CABA y GBA",
+      "🏷️ Hasta 15% OFF comprando por cantidad",
+      "🎁 Dispensers en comodato sin costo",
+      "🧾 Factura A y B",
+      "💳 Financiación a 30, 60 y 90 días para cuentas corrientes",
+      "🏥 Proveedor de hospitales y del GCBA"
+    ]
+  },
+  "banners": [
+    {
+      "etiqueta": "Fabricantes y distribuidores · Desde 1985",
+      "titulo": "Fabricamos y distribuimos limpieza institucional",
+      "destacado": "limpieza institucional",
+      "bajada": "Productos de fabricación propia y distribución mayorista: papeles, químicos, dispensers en comodato y descartables para hospitales, organismos públicos, empresas y consorcios.",
+      "cta": "Ver catálogo",
+      "ctaHref": "/productos",
+      "cta2": "🔥 Ofertas del mes",
+      "cta2Href": "/#ofertas",
+      "imagen": "/img/marca/planta.webp",
+      "tema": "teal"
+    },
+    {
+      "etiqueta": "Oferta del mes",
+      "titulo": "Hasta −15% llevando por cantidad",
+      "destacado": "−15%",
+      "bajada": "Precio directo de fábrica, y además: más llevás, menos pagás. El descuento se aplica solo en tu cotización.",
+      "cta": "Ver ofertas",
+      "ctaHref": "/#ofertas",
+      "cta2": "Cómo funciona",
+      "cta2Href": "/#descuentos",
+      "imagen": "/img/productos/toallas-intercaladas.webp",
+      "tema": "gold"
+    },
+    {
+      "etiqueta": "Sin costo",
+      "titulo": "Dispensers en comodato para tu institución",
+      "destacado": "comodato",
+      "bajada": "Te los instalamos gratis comprando los insumos compatibles con nosotros.",
+      "cta": "Pedir comodato",
+      "ctaHref": "https://wa.me/5491144402807?text=Hola!%20Quiero%20consultar%20por%20dispensers%20en%20comodato.",
+      "cta2": "Ver compatibilidad",
+      "cta2Href": "/compatibilidad",
+      "imagen": "/img/productos/dispenser-jabon-inox.webp",
+      "tema": "dark"
+    }
+  ],
+  "sellos": [
+    {
+      "icono": "🏭",
+      "titulo": "Fabricantes",
+      "texto": "y distribuidores"
+    },
+    {
+      "icono": "🏆",
+      "titulo": "+40 años",
+      "texto": "Empresa familiar desde 1985"
+    },
+    {
+      "icono": "🚚",
+      "titulo": "Reparto propio",
+      "texto": "24–48 hs CABA y GBA"
+    },
+    {
+      "icono": "🧾",
+      "titulo": "Factura A y B",
+      "texto": "Inscriptos en ARCA"
+    },
+    {
+      "icono": "🤝",
+      "titulo": "Comodato",
+      "texto": "Dispensers sin costo"
+    }
+  ],
+  "marcas": [],
+  "popup": {
+    "activo": true,
+    "retrasoSeg": 2,
+    "frecuencia": "sesion",
+    "etiqueta": "Fabricantes y distribuidores",
+    "titulo": "5% OFF en tu primera cotización",
+    "texto": "Usá el código al enviar tu lista. Y mirá lo que está en oferta este mes 👇",
+    "cupon": "BIENVENIDA5",
+    "mostrarOfertas": true,
+    "cta": "Ver todas las ofertas",
+    "ctaHref": "/#ofertas"
+  },
+  "ofertaDelMes": {
+    "activa": true,
+    "titulo": "Mes de la higiene institucional",
+    "bajada": "Llevá tus toallas intercaladas y papel jumbo con descuento extra, más el dispenser en comodato.",
+    "off": 12,
+    "productos": [
+      "toallas-intercaladas",
+      "papel-higienico-jumbo",
+      "dispenser-toallas-intercaladas",
+      "dispenser-papel-higienico-jumbo"
+    ],
+    "hasta": "2026-11-30T23:59:59-03:00"
+  },
+  "escalas": [
+    {
+      "min": 1,
+      "off": 0,
+      "label": "x1"
+    },
+    {
+      "min": 6,
+      "off": 5,
+      "label": "x6"
+    },
+    {
+      "min": 12,
+      "off": 10,
+      "label": "x12",
+      "tag": "Más elegido"
+    },
+    {
+      "min": 24,
+      "off": 15,
+      "label": "x24",
+      "tag": "Mejor precio"
+    }
+  ],
+  "cupones": [
+    {
+      "code": "BIENVENIDA5",
+      "off": 5,
+      "desc": "5% OFF en tu primera compra"
+    },
+    {
+      "code": "INSTITUCIONAL10",
+      "off": 10,
+      "desc": "10% OFF para instituciones a partir de 50 unidades",
+      "minUnidades": 50
+    },
+    {
+      "code": "CONSORCIO7",
+      "off": 7,
+      "desc": "7% OFF para administraciones de consorcio"
+    },
+    {
+      "code": "BLACK15",
+      "off": 15,
+      "desc": "15% OFF Black Friday",
+      "desde": "2026-11-27T00:00:00-03:00",
+      "vence": "2026-11-29T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "CYBER12",
+      "off": 12,
+      "desc": "12% OFF Cyber Monday",
+      "desde": "2026-11-30T00:00:00-03:00",
+      "vence": "2026-12-02T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "FINDEANO8",
+      "off": 8,
+      "desc": "8% OFF Cierre de año",
+      "desde": "2026-12-03T00:00:00-03:00",
+      "vence": "2026-12-23T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "VERANO7",
+      "off": 7,
+      "desc": "7% OFF Temporada de verano",
+      "desde": "2026-12-26T00:00:00-03:00",
+      "vence": "2027-02-28T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "CLASES10",
+      "off": 10,
+      "desc": "10% OFF Vuelta a clases",
+      "desde": "2027-02-01T00:00:00-03:00",
+      "vence": "2027-03-15T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "MANOS10",
+      "off": 10,
+      "desc": "10% OFF Día Mundial de la Higiene de Manos",
+      "desde": "2027-04-28T00:00:00-03:00",
+      "vence": "2027-05-05T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "HOTSALE15",
+      "off": 15,
+      "desc": "15% OFF Hot Sale",
+      "desde": "2027-05-10T00:00:00-03:00",
+      "vence": "2027-05-12T23:59:59-03:00",
+      "oculto": true
+    },
+    {
+      "code": "INVIERNO7",
+      "off": 7,
+      "desc": "7% OFF Temporada de invierno",
+      "desde": "2027-06-01T00:00:00-03:00",
+      "vence": "2027-08-31T23:59:59-03:00",
+      "oculto": true
+    }
+  ],
+  "kits": [
+    {
+      "slug": "kit-bano-institucional",
+      "nombre": "Kit Baño Institucional",
+      "rubro": "Baños",
+      "para": "Hospitales, oficinas y escuelas",
+      "icono": "🚻",
+      "off": 10,
+      "tag": "Más elegido",
+      "descripcion": "Reposición mensual para baños de alto tránsito: toallas, papel jumbo y alcohol en gel.",
+      "items": [
+        {
+          "slug": "toallas-intercaladas",
+          "cantidad": 6
+        },
+        {
+          "slug": "papel-higienico-jumbo",
+          "cantidad": 6
+        },
+        {
+          "slug": "alcohol-en-gel-5-litros",
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "slug": "kit-equipamiento-bano",
+      "nombre": "Kit Equipamiento de Baño",
+      "rubro": "Baños",
+      "para": "Baños nuevos o renovados",
+      "icono": "🧻",
+      "off": 8,
+      "descripcion": "Los dispensers más sus primeras recargas. Consultá por comodato sin costo.",
+      "items": [
+        {
+          "slug": "dispenser-toallas-intercaladas",
+          "cantidad": 1
+        },
+        {
+          "slug": "dispenser-papel-higienico-jumbo",
+          "cantidad": 1
+        },
+        {
+          "slug": "dispenser-jabon-inox",
+          "cantidad": 1
+        },
+        {
+          "slug": "toallas-intercaladas",
+          "cantidad": 2
+        },
+        {
+          "slug": "papel-higienico-jumbo",
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "slug": "kit-cocina",
+      "nombre": "Kit Cocina",
+      "rubro": "Gastronomía",
+      "para": "Cocinas de comedores y hoteles",
+      "icono": "🍳",
+      "off": 8,
+      "descripcion": "Desengrase, lavado de vajilla y secado: lo básico de una cocina profesional.",
+      "items": [
+        {
+          "slug": "desengrasante-profesional",
+          "cantidad": 4
+        },
+        {
+          "slug": "detergente-profesional",
+          "cantidad": 4
+        },
+        {
+          "slug": "toalla-en-bobina",
+          "cantidad": 6
+        },
+        {
+          "slug": "esponja",
+          "cantidad": 12
+        },
+        {
+          "slug": "guantes-industriales",
+          "cantidad": 6
+        }
+      ]
+    },
+    {
+      "slug": "kit-restaurante",
+      "nombre": "Kit Restaurante",
+      "rubro": "Gastronomía",
+      "para": "Restaurantes, bares y cafeterías",
+      "icono": "🍽️",
+      "off": 10,
+      "tag": "Nuevo",
+      "descripcion": "Cocina, salón y baño en un solo pedido, con señalización de piso mojado incluida.",
+      "items": [
+        {
+          "slug": "detergente-profesional",
+          "cantidad": 4
+        },
+        {
+          "slug": "desengrasante-profesional",
+          "cantidad": 2
+        },
+        {
+          "slug": "toalla-en-bobina",
+          "cantidad": 4
+        },
+        {
+          "slug": "alcohol-en-gel",
+          "cantidad": 4
+        },
+        {
+          "slug": "trapo-de-piso",
+          "cantidad": 6
+        },
+        {
+          "slug": "cono-piso-mojado",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "slug": "kit-fabrica",
+      "nombre": "Kit Fábrica e Industria",
+      "rubro": "Industria",
+      "para": "Plantas, talleres y depósitos",
+      "icono": "🏭",
+      "off": 10,
+      "tag": "Mejor precio",
+      "descripcion": "Limpieza pesada: guantes de alta resistencia, desengrasante, cloro y bobinas con soporte.",
+      "items": [
+        {
+          "slug": "guantes-industriales",
+          "cantidad": 12
+        },
+        {
+          "slug": "desengrasante-profesional",
+          "cantidad": 6
+        },
+        {
+          "slug": "cloro",
+          "cantidad": 4
+        },
+        {
+          "slug": "toalla-en-bobina",
+          "cantidad": 6
+        },
+        {
+          "slug": "dispenser-porta-bobina",
+          "cantidad": 1
+        },
+        {
+          "slug": "escobillon",
+          "cantidad": 3
+        },
+        {
+          "slug": "balde",
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "slug": "kit-comercio",
+      "nombre": "Kit Comercio",
+      "rubro": "Comercio",
+      "para": "Locales, negocios y showrooms",
+      "icono": "🏪",
+      "off": 7,
+      "descripcion": "Vidrieras, pisos y baño del local siempre impecables.",
+      "items": [
+        {
+          "slug": "limpiavidrios",
+          "cantidad": 4
+        },
+        {
+          "slug": "limpiador-multiuso",
+          "cantidad": 4
+        },
+        {
+          "slug": "lavandina-concentrada",
+          "cantidad": 2
+        },
+        {
+          "slug": "trapo-de-piso",
+          "cantidad": 4
+        },
+        {
+          "slug": "escobillon",
+          "cantidad": 1
+        },
+        {
+          "slug": "papel-higienico-48-rollos",
+          "cantidad": 1
+        },
+        {
+          "slug": "alcohol-en-gel",
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "slug": "kit-oficina",
+      "nombre": "Kit Oficina",
+      "rubro": "Comercio",
+      "para": "Oficinas y estudios",
+      "icono": "💼",
+      "off": 7,
+      "descripcion": "Papel, higiene de manos y limpieza de escritorios y vidrios.",
+      "items": [
+        {
+          "slug": "papel-higienico-48-rollos",
+          "cantidad": 1
+        },
+        {
+          "slug": "toallas-intercaladas",
+          "cantidad": 4
+        },
+        {
+          "slug": "alcohol-en-gel",
+          "cantidad": 4
+        },
+        {
+          "slug": "limpiavidrios",
+          "cantidad": 2
+        },
+        {
+          "slug": "limpiador-multiuso",
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "slug": "kit-consorcio",
+      "nombre": "Kit Consorcio",
+      "rubro": "Edificios",
+      "para": "Edificios y administraciones",
+      "icono": "🏢",
+      "off": 8,
+      "descripcion": "Palieres, cocheras y espacios comunes con insumos rendidores.",
+      "items": [
+        {
+          "slug": "lavandina-concentrada",
+          "cantidad": 6
+        },
+        {
+          "slug": "limpiador-multiuso",
+          "cantidad": 6
+        },
+        {
+          "slug": "trapo-de-piso",
+          "cantidad": 12
+        },
+        {
+          "slug": "escobillon",
+          "cantidad": 2
+        },
+        {
+          "slug": "balde",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "slug": "kit-salud",
+      "nombre": "Kit Salud",
+      "rubro": "Salud",
+      "para": "Clínicas, consultorios y geriátricos",
+      "icono": "🏥",
+      "off": 12,
+      "tag": "Más elegido",
+      "descripcion": "Desinfección e higiene de manos para áreas de atención, con papeles institucionales.",
+      "items": [
+        {
+          "slug": "alcohol-en-gel-5-litros",
+          "cantidad": 4
+        },
+        {
+          "slug": "alcohol-70-bidon",
+          "cantidad": 4
+        },
+        {
+          "slug": "toallas-intercaladas",
+          "cantidad": 8
+        },
+        {
+          "slug": "papel-higienico-jumbo",
+          "cantidad": 8
+        },
+        {
+          "slug": "lavandina-concentrada",
+          "cantidad": 6
+        },
+        {
+          "slug": "guantes-domesticos",
+          "cantidad": 12
+        }
+      ]
+    },
+    {
+      "slug": "kit-escuela",
+      "nombre": "Kit Escuela",
+      "rubro": "Educación",
+      "para": "Escuelas, jardines e institutos",
+      "icono": "🏫",
+      "off": 10,
+      "descripcion": "Higiene de manos para chicos y limpieza diaria de aulas y baños.",
+      "items": [
+        {
+          "slug": "papel-higienico-48-rollos",
+          "cantidad": 2
+        },
+        {
+          "slug": "toallas-intercaladas",
+          "cantidad": 4
+        },
+        {
+          "slug": "jabon-en-pan",
+          "cantidad": 12
+        },
+        {
+          "slug": "alcohol-en-gel",
+          "cantidad": 4
+        },
+        {
+          "slug": "lavandina-concentrada",
+          "cantidad": 4
+        },
+        {
+          "slug": "trapo-de-piso",
+          "cantidad": 6
+        }
+      ]
+    }
+  ],
+  "complementos": {
+    "dispenser-toallas-intercaladas": [
+      "toallas-intercaladas",
+      "dispenser-jabon-inox",
+      "alcohol-en-gel-5-litros"
+    ],
+    "dispenser-papel-higienico-jumbo": [
+      "papel-higienico-jumbo",
+      "dispenser-toallas-intercaladas",
+      "cono-piso-mojado"
+    ],
+    "dispenser-jabon-inox": [
+      "alcohol-en-gel-5-litros",
+      "dispenser-toallas-intercaladas",
+      "toallas-intercaladas"
+    ],
+    "lavandina-concentrada": [
+      "trapo-de-piso",
+      "balde",
+      "guantes-domesticos"
+    ],
+    "desengrasante-profesional": [
+      "guantes-industriales",
+      "esponja",
+      "toalla-en-bobina"
+    ]
+  },
+  "apariencia": {
+    "colorPrincipal": "#1a4a44",
+    "colorAcento": "#b08a3a",
+    "colorFondo": "#f6f2ea",
+    "redondeo": 14,
+    "tipografiaTitulos": "Montserrat"
+  },
+  "animaciones": {
+    "activas": true,
+    "scrollSuave": true,
+    "productoVuelaAlCarrito": true,
+    "bannerAutoplaySeg": 7
+  },
+  "secciones": {
+    "sellos": true,
+    "rubros": true,
+    "ofertaDelMes": true,
+    "categorias": true,
+    "combos": true,
+    "descuentos": true,
+    "destacados": true,
+    "comoComprar": true,
+    "ventajas": true,
+    "calculadora": true,
+    "nosotros": true,
+    "testimonios": true,
+    "herramientas": true,
+    "preguntas": true,
+    "glosario": true,
+    "suscripcion": true,
+    "contacto": true,
+    "guias": true
+  },
+  "eventos": [
+    {
+      "slug": "black-friday",
+      "activo": true,
+      "nombre": "Black Friday",
+      "emoji": "🖤",
+      "tema": "black",
+      "etiqueta": "Solo 3 días",
+      "titulo": "Black Friday de la limpieza",
+      "bajada": "Los precios más bajos del año en insumos de fabricación propia y kits. Solo por 3 días.",
+      "cupon": "BLACK15",
+      "off": 15,
+      "desde": "2026-11-27T00:00:00-03:00",
+      "hasta": "2026-11-29T23:59:59-03:00",
+      "productos": [
+        "toallas-intercaladas",
+        "papel-higienico-jumbo",
+        "lavandina-concentrada",
+        "desengrasante-profesional",
+        "alcohol-en-gel-5-litros",
+        "detergente-profesional"
+      ],
+      "kits": [
+        "kit-bano-institucional",
+        "kit-restaurante",
+        "kit-fabrica"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "BLACK FRIDAY: 15% OFF extra",
+        "texto": "Usá el código en tu cotización. Válido solo este fin de semana.",
+        "cta": "Ver ofertas Black Friday"
+      }
+    },
+    {
+      "slug": "cyber-monday",
+      "activo": true,
+      "nombre": "Cyber Monday",
+      "emoji": "⚡",
+      "tema": "cyber",
+      "etiqueta": "Fechas a confirmar",
+      "titulo": "Cyber Monday mayorista",
+      "bajada": "Ofertas exclusivas online en kits y productos de mayor rotación.",
+      "cupon": "CYBER12",
+      "off": 12,
+      "desde": "2026-11-30T00:00:00-03:00",
+      "hasta": "2026-12-02T23:59:59-03:00",
+      "productos": [
+        "toallas-intercaladas",
+        "papel-higienico-48-rollos",
+        "limpiador-multiuso",
+        "alcohol-en-gel",
+        "guantes-industriales",
+        "trapo-de-piso"
+      ],
+      "kits": [
+        "kit-comercio",
+        "kit-oficina",
+        "kit-consorcio"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "CYBER MONDAY: 12% OFF online",
+        "texto": "Ofertas exclusivas de la tienda online por pocos días.",
+        "cta": "Ver ofertas Cyber"
+      }
+    },
+    {
+      "slug": "fin-de-ano",
+      "activo": true,
+      "nombre": "Cierre de año",
+      "emoji": "🎄",
+      "tema": "navidad",
+      "etiqueta": "Reponé antes de las fiestas",
+      "titulo": "Cierre de año: dejá todo listo para enero",
+      "bajada": "Stockeate antes de las fiestas y las vacaciones, con entrega antes del 23 de diciembre.",
+      "cupon": "FINDEANO8",
+      "off": 8,
+      "desde": "2026-12-03T00:00:00-03:00",
+      "hasta": "2026-12-23T23:59:59-03:00",
+      "productos": [
+        "papel-higienico-jumbo",
+        "toallas-intercaladas",
+        "lavandina-concentrada",
+        "detergente-profesional"
+      ],
+      "kits": [
+        "kit-bano-institucional",
+        "kit-consorcio",
+        "kit-restaurante"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "Cierre de año: 8% OFF",
+        "texto": "Reponé antes de las fiestas y empezá enero sin faltantes.",
+        "cta": "Ver ofertas de fin de año"
+      }
+    },
+    {
+      "slug": "verano",
+      "activo": true,
+      "nombre": "Temporada de verano",
+      "emoji": "☀️",
+      "tema": "verano",
+      "etiqueta": "Temporada alta",
+      "titulo": "Verano: más gente, más limpieza",
+      "bajada": "Para gastronomía, hoteles y comercios en temporada alta: desengrasantes, papeles y alcohol en gel.",
+      "cupon": "VERANO7",
+      "off": 7,
+      "desde": "2026-12-26T00:00:00-03:00",
+      "hasta": "2027-02-28T23:59:59-03:00",
+      "productos": [
+        "desengrasante-profesional",
+        "alcohol-en-gel",
+        "repelente-off",
+        "toalla-en-bobina",
+        "limpiavidrios"
+      ],
+      "kits": [
+        "kit-restaurante",
+        "kit-cocina",
+        "kit-comercio"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "Temporada de verano: 7% OFF",
+        "texto": "Prepará tu local para la temporada alta.",
+        "cta": "Ver ofertas de verano"
+      }
+    },
+    {
+      "slug": "vuelta-a-clases",
+      "activo": true,
+      "nombre": "Vuelta a clases",
+      "emoji": "🏫",
+      "tema": "escuela",
+      "etiqueta": "Escuelas e institutos",
+      "titulo": "Vuelta a clases: escuelas limpias desde el primer día",
+      "bajada": "Kit Escuela y papeles con descuento para colegios, jardines e institutos.",
+      "cupon": "CLASES10",
+      "off": 10,
+      "desde": "2027-02-01T00:00:00-03:00",
+      "hasta": "2027-03-15T23:59:59-03:00",
+      "productos": [
+        "papel-higienico-48-rollos",
+        "jabon-en-pan",
+        "alcohol-en-gel",
+        "toallas-intercaladas"
+      ],
+      "kits": [
+        "kit-escuela",
+        "kit-bano-institucional"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "Vuelta a clases: 10% OFF",
+        "texto": "Equipá tu escuela antes del inicio del ciclo lectivo.",
+        "cta": "Ver ofertas para escuelas"
+      }
+    },
+    {
+      "slug": "higiene-de-manos",
+      "activo": true,
+      "nombre": "Día Mundial de la Higiene de Manos",
+      "emoji": "🧼",
+      "tema": "manos",
+      "etiqueta": "5 de mayo",
+      "titulo": "Semana de la higiene de manos",
+      "bajada": "Alcohol en gel, jabón y dispensers para instituciones de salud y espacios públicos.",
+      "cupon": "MANOS10",
+      "off": 10,
+      "desde": "2027-04-28T00:00:00-03:00",
+      "hasta": "2027-05-05T23:59:59-03:00",
+      "productos": [
+        "alcohol-en-gel-5-litros",
+        "alcohol-en-gel",
+        "dispenser-jabon-inox",
+        "jabon-en-pan",
+        "toallas-intercaladas"
+      ],
+      "kits": [
+        "kit-salud",
+        "kit-equipamiento-bano"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "Semana de la higiene de manos: 10% OFF",
+        "texto": "Dispensers, alcohol en gel y jabón para tu institución.",
+        "cta": "Ver ofertas"
+      }
+    },
+    {
+      "slug": "hot-sale",
+      "activo": true,
+      "nombre": "Hot Sale",
+      "emoji": "🔥",
+      "tema": "hot",
+      "etiqueta": "Fechas a confirmar",
+      "titulo": "Hot Sale de limpieza institucional",
+      "bajada": "Los mejores descuentos online del primer semestre.",
+      "cupon": "HOTSALE15",
+      "off": 15,
+      "desde": "2027-05-10T00:00:00-03:00",
+      "hasta": "2027-05-12T23:59:59-03:00",
+      "productos": [
+        "toallas-intercaladas",
+        "papel-higienico-jumbo",
+        "lavandina-concentrada",
+        "desengrasante-profesional",
+        "guantes-industriales"
+      ],
+      "kits": [
+        "kit-fabrica",
+        "kit-salud",
+        "kit-restaurante"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "HOT SALE: 15% OFF",
+        "texto": "Solo por 3 días en la tienda online.",
+        "cta": "Ver ofertas Hot Sale"
+      }
+    },
+    {
+      "slug": "invierno",
+      "activo": true,
+      "nombre": "Temporada de invierno",
+      "emoji": "❄️",
+      "tema": "invierno",
+      "etiqueta": "Temporada de virus",
+      "titulo": "Invierno: reforzá la higiene",
+      "bajada": "Más alcohol en gel y desinfección en la temporada de gripe, para oficinas, escuelas y salud.",
+      "cupon": "INVIERNO7",
+      "off": 7,
+      "desde": "2027-06-01T00:00:00-03:00",
+      "hasta": "2027-08-31T23:59:59-03:00",
+      "productos": [
+        "alcohol-en-gel-5-litros",
+        "alcohol-70-bidon",
+        "lavandina-concentrada",
+        "toallas-intercaladas"
+      ],
+      "kits": [
+        "kit-salud",
+        "kit-oficina",
+        "kit-escuela"
+      ],
+      "popup": {
+        "activo": true,
+        "titulo": "Invierno: 7% OFF en higiene",
+        "texto": "Reforzá la desinfección en la temporada de gripe.",
+        "cta": "Ver ofertas de invierno"
+      }
+    }
+  ],
+  "envioGratis": {
+    "activo": true,
+    "minimo": 150000,
+    "texto": "Envío gratis en compras desde $150.000 en CABA y GBA"
+  },
+  "puntos": {
+    "activo": true,
+    "pesosPorPunto": 1000,
+    "valorPunto": 10,
+    "minimoCanje": 500,
+    "vencimientoMeses": 12,
+    "bonoBienvenida": 100
+  }
+}

@@ -1,0 +1,528 @@
+[
+  {
+    "slug": "dispenser-toallas-intercaladas",
+    "nombre": "Dispenser de toallas intercaladas",
+    "categoria": "dispensers",
+    "subcategoria": "Toallas",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/dispenser-toallas-intercaladas.webp"
+    ],
+    "descripcion": "Dispenser para toallas intercaladas en Z o V. Entrega de a una toalla para reducir el consumo. Ideal para baños de oficinas, hospitales y comercios.",
+    "detalle": "Un dispenser de toallas intercaladas entrega una hoja por vez, así se evita el desperdicio típico de los baños con mucho uso. Se amura a la pared y se recarga desde el frente.",
+    "usos": [
+      "Baños de oficinas, hospitales, escuelas y comercios",
+      "Reemplazo de toallas de tela o secamanos que no funcionan",
+      "Instituciones que quieren controlar el consumo de papel"
+    ]
+  },
+  {
+    "slug": "dispenser-toallas-elite",
+    "nombre": "Dispenser de toallas Elite",
+    "categoria": "dispensers",
+    "subcategoria": "Toallas",
+    "imagenes": [
+      "/img/productos/dispenser-toallas-elite.webp"
+    ],
+    "descripcion": "Dispenser de toallas de papel de línea Elite, con visor de nivel y cierre con llave.",
+    "detalle": "Dispenser de toallas de línea Elite con visor para ver cuándo hay que reponer y cierre con llave para evitar el retiro de papel. Pensado para baños institucionales y de atención al público.",
+    "usos": [
+      "Baños de público en general",
+      "Sanatorios, clínicas y consultorios",
+      "Edificios corporativos y consorcios"
+    ]
+  },
+  {
+    "slug": "dispenser-toalla-en-rollo",
+    "nombre": "Dispenser de toalla en rollo",
+    "categoria": "dispensers",
+    "subcategoria": "Toallas",
+    "imagenes": [
+      "/img/productos/dispenser-toalla-rollo.webp"
+    ],
+    "descripcion": "Dispenser para toalla en rollo, apto para baños de alto tráfico.",
+    "detalle": "Dispenser para toalla de papel en rollo, con más capacidad que los de toalla intercalada: se repone con menos frecuencia. Ideal donde hay mucho tránsito y poco personal de limpieza.",
+    "usos": [
+      "Baños de alto tráfico: estaciones, clubes, fábricas",
+      "Cocinas y comedores",
+      "Instituciones que buscan menos reposiciones"
+    ]
+  },
+  {
+    "slug": "dispenser-porta-bobina",
+    "nombre": "Porta bobina de pie o pared",
+    "categoria": "dispensers",
+    "subcategoria": "Bobinas",
+    "imagenes": [
+      "/img/productos/dispenser-porta-bobina.webp"
+    ],
+    "descripcion": "Soporte para bobinas de papel, se instala en pared o se usa de pie. Pensado para cocinas, talleres e industrias.",
+    "detalle": "Porta bobina de pie o de pared para tener papel a mano en las áreas de trabajo. Sirve para secado, limpieza rápida de superficies y derrames.",
+    "usos": [
+      "Cocinas industriales y gastronómicas",
+      "Talleres, industrias y depósitos",
+      "Laboratorios y áreas de mantenimiento"
+    ]
+  },
+  {
+    "slug": "dispenser-papel-higienico-jumbo",
+    "nombre": "Dispenser de papel higiénico jumbo",
+    "categoria": "dispensers",
+    "subcategoria": "Papel higiénico",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/dispenser-papel-higienico-jumbo.webp"
+    ],
+    "descripcion": "Dispenser para rollos de papel higiénico jumbo. Menos reposiciones en baños institucionales.",
+    "detalle": "Dispenser para rollo de papel higiénico jumbo: un rollo dura mucho más que varios rollos comunes, así que el baño se repone menos veces y no queda vacío.",
+    "usos": [
+      "Baños institucionales de hospitales y escuelas",
+      "Oficinas y edificios con muchos usuarios",
+      "Comercios y espacios públicos"
+    ]
+  },
+  {
+    "slug": "dispenser-papel-higienico-doble",
+    "nombre": "Dispenser doble de papel higiénico alto impacto",
+    "categoria": "dispensers",
+    "subcategoria": "Papel higiénico",
+    "imagenes": [
+      "/img/productos/dispenser-papel-higienico-doble.webp"
+    ],
+    "descripcion": "Dispenser doble de plástico de alto impacto para dos rollos de papel higiénico.",
+    "detalle": "Dispenser doble de plástico de alto impacto para dos rollos de papel higiénico: cuando se termina uno, queda el otro. Resiste golpes y uso intensivo.",
+    "usos": [
+      "Baños de uso intensivo",
+      "Consorcios, clubes y escuelas",
+      "Baños donde se usa papel higiénico tradicional"
+    ]
+  },
+  {
+    "slug": "dispenser-jabon-inox",
+    "nombre": "Dispenser de jabón de acero inoxidable",
+    "categoria": "dispensers",
+    "subcategoria": "Jabón",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/dispenser-jabon-inox.webp"
+    ],
+    "descripcion": "Dispenser de jabón líquido en acero inoxidable, resistente y fácil de limpiar.",
+    "badge": "Nuevo",
+    "detalle": "Dispenser de jabón líquido en acero inoxidable: más durable y fácil de higienizar que los de plástico. Se recarga con jabón líquido a granel.",
+    "usos": [
+      "Baños de hospitales, clínicas y laboratorios",
+      "Cocinas profesionales",
+      "Edificios corporativos que buscan una terminación prolija"
+    ]
+  },
+  {
+    "slug": "dispenser-jabon-tecla",
+    "nombre": "Dispenser de jabón a tecla",
+    "categoria": "dispensers",
+    "subcategoria": "Jabón",
+    "imagenes": [
+      "/img/productos/dispenser-jabon-tecla.webp"
+    ],
+    "descripcion": "Dispenser de jabón líquido con accionamiento a tecla, recargable.",
+    "detalle": "Dispenser de jabón líquido recargable con tecla de accionamiento: entrega una dosis por vez y evita el derroche de jabón.",
+    "usos": [
+      "Baños de oficinas, escuelas y comercios",
+      "Vestuarios y comedores",
+      "Instituciones que recargan jabón a granel"
+    ]
+  },
+  {
+    "slug": "toallas-intercaladas",
+    "nombre": "Toallas intercaladas",
+    "categoria": "papeles",
+    "subcategoria": "Toallas",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/toallas-intercaladas.webp",
+      "/img/productos/caja-toallas.webp"
+    ],
+    "descripcion": "Toallas de papel intercaladas para dispenser. Se venden por caja en presentación mayorista.",
+    "badge": "Más vendido",
+    "detalle": "Toallas de papel intercaladas para dispenser, en caja mayorista. Salen de a una, lo que reduce el consumo frente a las toallas sueltas o en rollo sin dispenser.",
+    "usos": [
+      "Baños de oficinas, hospitales, escuelas y comercios",
+      "Consultorios y áreas de atención",
+      "Compra mensual o programada por caja"
+    ]
+  },
+  {
+    "slug": "toalla-en-bobina",
+    "nombre": "Toalla en bobina",
+    "categoria": "papeles",
+    "subcategoria": "Bobinas",
+    "imagenes": [
+      "/img/productos/toalla-bobina.webp"
+    ],
+    "descripcion": "Bobina de papel para cocinas, talleres y limpieza general.",
+    "detalle": "Bobina de papel de alto rendimiento para secado y limpieza general. Se usa con porta bobina de pie o de pared.",
+    "usos": [
+      "Cocinas industriales y gastronómicas",
+      "Talleres, industrias y mantenimiento",
+      "Limpieza de superficies y derrames"
+    ]
+  },
+  {
+    "slug": "toalla-en-rollo",
+    "nombre": "Toalla en rollo",
+    "categoria": "papeles",
+    "subcategoria": "Toallas",
+    "imagenes": [
+      "/img/productos/toalla-rollo.webp"
+    ],
+    "descripcion": "Toalla de papel en rollo para dispenser de rollo.",
+    "detalle": "Toalla de papel en rollo para dispensers de rollo. Tiene más metros por unidad, así que se repone menos.",
+    "usos": [
+      "Baños de alto tránsito",
+      "Comedores y cocinas",
+      "Instituciones con dispenser de toalla en rollo"
+    ]
+  },
+  {
+    "slug": "papel-higienico-48-rollos",
+    "nombre": "Papel higiénico x 48 rollos",
+    "categoria": "papeles",
+    "subcategoria": "Papel higiénico",
+    "imagenes": [
+      "/img/productos/papel-higienico-48.webp"
+    ],
+    "descripcion": "Bulto de 48 rollos de papel higiénico para consumo institucional.",
+    "detalle": "Bulto de 48 rollos de papel higiénico para consumo institucional: una compra cubre varios baños durante semanas.",
+    "usos": [
+      "Oficinas, consorcios y comercios",
+      "Escuelas, clubes e instituciones",
+      "Baños con portarrollos tradicional"
+    ]
+  },
+  {
+    "slug": "papel-higienico-jumbo",
+    "nombre": "Papel higiénico jumbo",
+    "categoria": "papeles",
+    "subcategoria": "Papel higiénico",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/papel-higienico-jumbo-beige.webp"
+    ],
+    "descripcion": "Rollos de papel higiénico jumbo para dispensers de alta capacidad.",
+    "badge": "Más vendido",
+    "detalle": "Rollos de papel higiénico jumbo para dispensers de alta capacidad. Rinden más que el papel tradicional y reducen las reposiciones del personal de limpieza.",
+    "usos": [
+      "Hospitales y sanatorios",
+      "Escuelas, universidades y organismos públicos",
+      "Edificios con muchos usuarios"
+    ]
+  },
+  {
+    "slug": "lavandina-concentrada",
+    "nombre": "Lavandina concentrada",
+    "categoria": "limpieza",
+    "subcategoria": "Desinfección",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/lavandina-concentrada.webp"
+    ],
+    "descripcion": "Hipoclorito de sodio de alta concentración. Rinde más: se diluye antes de usar.",
+    "badge": "Más vendido",
+    "detalle": "Hipoclorito de sodio concentrado: se diluye antes de usar, así que un bidón rinde muchos más litros de solución que la lavandina común. Siempre seguí la dilución indicada en el rótulo.",
+    "usos": [
+      "Desinfección de pisos, baños y superficies",
+      "Consorcios, escuelas, hospitales e industrias",
+      "Compras de alto rendimiento por litro"
+    ]
+  },
+  {
+    "slug": "detergente-profesional",
+    "nombre": "Detergente profesional",
+    "categoria": "limpieza",
+    "subcategoria": "Detergentes",
+    "imagenes": [
+      "/img/productos/detergente.webp"
+    ],
+    "descripcion": "Detergente de uso profesional para vajilla y superficies, en bidón.",
+    "detalle": "Detergente de uso profesional en bidón para vajilla y superficies. La presentación mayorista baja el costo por lavado frente a los envases de góndola.",
+    "usos": [
+      "Cocinas de restaurantes, comedores y hospitales",
+      "Lavado de vajilla manual",
+      "Limpieza de mesadas y superficies"
+    ]
+  },
+  {
+    "slug": "limpiador-multiuso",
+    "nombre": "Limpiador multiuso",
+    "categoria": "limpieza",
+    "subcategoria": "Limpiadores",
+    "imagenes": [
+      "/img/productos/limpiador-multiuso.webp"
+    ],
+    "descripcion": "Limpiador para pisos y superficies lavables.",
+    "detalle": "Limpiador para pisos y superficies lavables, en presentación mayorista. Deja buen aroma y se usa diluido según el rótulo.",
+    "usos": [
+      "Pisos de oficinas, escuelas y comercios",
+      "Pasillos y espacios comunes de consorcios",
+      "Limpieza diaria de superficies"
+    ]
+  },
+  {
+    "slug": "limpiavidrios",
+    "nombre": "Limpiavidrios",
+    "categoria": "limpieza",
+    "subcategoria": "Limpiadores",
+    "imagenes": [
+      "/img/productos/limpiavidrios.webp"
+    ],
+    "descripcion": "Limpiador para vidrios, espejos y superficies brillantes.",
+    "detalle": "Limpiador para vidrios, espejos y superficies brillantes. Se aplica con pulverizador y paño.",
+    "usos": [
+      "Vidrieras de comercios",
+      "Espejos de baños y vestuarios",
+      "Puertas, mamparas y superficies de vidrio"
+    ]
+  },
+  {
+    "slug": "esponja",
+    "nombre": "Esponjas",
+    "categoria": "limpieza",
+    "subcategoria": "Accesorios",
+    "imagenes": [
+      "/img/productos/esponja.webp"
+    ],
+    "descripcion": "Esponjas para limpieza de cocina y superficies.",
+    "detalle": "Esponjas para limpieza de cocina y superficies, en cantidad para uso profesional.",
+    "usos": [
+      "Cocinas gastronómicas y comedores",
+      "Lavado de vajilla",
+      "Limpieza de mesadas y bachas"
+    ]
+  },
+  {
+    "slug": "desengrasante-profesional",
+    "nombre": "Desengrasante profesional",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Químicos",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/desengrasante.webp"
+    ],
+    "descripcion": "Desengrasante de alta potencia para cocinas industriales y superficies duras.",
+    "detalle": "Desengrasante de alta potencia para quitar grasa adherida en cocinas industriales y superficies duras. Usá guantes y seguí la dilución del rótulo.",
+    "usos": [
+      "Campanas, planchas, hornos y freidoras",
+      "Pisos y paredes de cocinas industriales",
+      "Talleres y áreas de mantenimiento"
+    ]
+  },
+  {
+    "slug": "cloro",
+    "nombre": "Cloro",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Químicos",
+    "imagenes": [
+      "/img/productos/cloro.webp"
+    ],
+    "descripcion": "Cloro para desinfección de superficies y áreas de alto tránsito.",
+    "detalle": "Cloro para desinfección de superficies y áreas de alto tránsito. Se usa diluido; no lo mezcles con otros productos.",
+    "usos": [
+      "Baños y pisos de instituciones",
+      "Hospitales, escuelas y consorcios",
+      "Desinfección de áreas comunes"
+    ]
+  },
+  {
+    "slug": "escobillon",
+    "nombre": "Escobillón",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Elementos",
+    "imagenes": [
+      "/img/productos/escobillon.webp"
+    ],
+    "descripcion": "Escobillón para barrido de interiores.",
+    "detalle": "Escobillón para barrido de interiores, resistente al uso diario del personal de limpieza.",
+    "usos": [
+      "Oficinas, escuelas y comercios",
+      "Pasillos y halls de consorcios",
+      "Depósitos y áreas de trabajo"
+    ]
+  },
+  {
+    "slug": "balde",
+    "nombre": "Balde",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Elementos",
+    "imagenes": [
+      "/img/productos/balde.webp"
+    ],
+    "descripcion": "Balde plástico resistente para limpieza.",
+    "detalle": "Balde plástico resistente para tareas de limpieza diaria.",
+    "usos": [
+      "Lavado de pisos",
+      "Preparación de diluciones",
+      "Equipos de limpieza institucional"
+    ]
+  },
+  {
+    "slug": "trapo-de-piso",
+    "nombre": "Trapo de piso",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Elementos",
+    "imagenes": [
+      "/img/productos/trapo-piso.webp"
+    ],
+    "descripcion": "Trapo de piso de algodón, absorbente.",
+    "detalle": "Trapo de piso de algodón, absorbente, para lavado de pisos.",
+    "usos": [
+      "Pisos de oficinas, escuelas y consorcios",
+      "Limpieza diaria con balde",
+      "Personal de limpieza institucional"
+    ]
+  },
+  {
+    "slug": "cono-piso-mojado",
+    "nombre": "Cono de señalización piso mojado",
+    "categoria": "limpieza-institucional",
+    "subcategoria": "Señalización",
+    "imagenes": [
+      "/img/productos/cono-piso-mojado.webp"
+    ],
+    "descripcion": "Señal de piso mojado para prevenir accidentes durante la limpieza.",
+    "detalle": "Señal de piso mojado para avisar mientras se limpia y prevenir resbalones y accidentes.",
+    "usos": [
+      "Hospitales, comercios y oficinas",
+      "Halls y pasillos de consorcios",
+      "Cualquier espacio con circulación de público"
+    ]
+  },
+  {
+    "slug": "alcohol-en-gel",
+    "nombre": "Alcohol en gel",
+    "categoria": "higiene",
+    "subcategoria": "Alcohol",
+    "destacado": true,
+    "imagenes": [
+      "/img/productos/alcohol-gel.webp"
+    ],
+    "descripcion": "Alcohol en gel para higiene de manos.",
+    "detalle": "Alcohol en gel para higiene de manos, en presentación para uso en accesos, mostradores y consultorios.",
+    "usos": [
+      "Accesos y recepciones",
+      "Consultorios, clínicas y salas de espera",
+      "Comercios y oficinas"
+    ]
+  },
+  {
+    "slug": "alcohol-en-gel-5-litros",
+    "nombre": "Alcohol en gel 5 litros",
+    "categoria": "higiene",
+    "subcategoria": "Alcohol",
+    "imagenes": [
+      "/img/productos/alcohol-gel-5l.webp"
+    ],
+    "descripcion": "Bidón de alcohol en gel de 5 litros para recarga de dispensers.",
+    "badge": "Rinde más",
+    "detalle": "Bidón de alcohol en gel de 5 litros para recargar dispensers y frascos. Es la forma más económica de abastecer varios puntos de higiene.",
+    "usos": [
+      "Recarga de dispensers de alcohol en gel",
+      "Instituciones con muchos puntos de higiene",
+      "Compra mensual o programada"
+    ]
+  },
+  {
+    "slug": "alcohol-70-bidon",
+    "nombre": "Alcohol al 70% en bidón",
+    "categoria": "higiene",
+    "subcategoria": "Alcohol",
+    "imagenes": [
+      "/img/productos/alcohol-70-bidon.webp"
+    ],
+    "descripcion": "Alcohol al 70% líquido en bidón. No apto para dispensers de gel.",
+    "detalle": "Alcohol al 70% líquido en bidón, para aplicar con pulverizador o paño. No es apto para dispensers de alcohol en gel.",
+    "usos": [
+      "Limpieza de superficies de contacto frecuente",
+      "Consultorios y laboratorios",
+      "Oficinas y equipos de uso compartido"
+    ]
+  },
+  {
+    "slug": "jabon-en-pan",
+    "nombre": "Jabón en pan",
+    "categoria": "higiene",
+    "subcategoria": "Jabones",
+    "imagenes": [
+      "/img/productos/jabon-pan.webp"
+    ],
+    "descripcion": "Jabón en pan para lavado de manos.",
+    "detalle": "Jabón en pan para lavado de manos, en cantidad para uso institucional.",
+    "usos": [
+      "Baños de escuelas, clubes e instituciones",
+      "Talleres y vestuarios",
+      "Lugares sin dispenser de jabón líquido"
+    ]
+  },
+  {
+    "slug": "cepillo-de-manos",
+    "nombre": "Cepillo de manos",
+    "categoria": "higiene",
+    "subcategoria": "Accesorios",
+    "imagenes": [
+      "/img/productos/cepillo-manos.webp"
+    ],
+    "descripcion": "Cepillo para lavado de manos y uñas.",
+    "detalle": "Cepillo para lavado de manos y uñas.",
+    "usos": [
+      "Cocinas gastronómicas",
+      "Consultorios y laboratorios",
+      "Talleres e industrias"
+    ]
+  },
+  {
+    "slug": "repelente-off",
+    "nombre": "Repelente en aerosol (pack x6)",
+    "categoria": "higiene",
+    "subcategoria": "Otros",
+    "imagenes": [
+      "/img/productos/repelente-off.webp"
+    ],
+    "descripcion": "Pack de 6 repelentes en aerosol.",
+    "detalle": "Pack de 6 repelentes en aerosol para proteger al personal y al público en temporada de mosquitos.",
+    "usos": [
+      "Escuelas, colonias y clubes",
+      "Personal que trabaja al aire libre",
+      "Instituciones en temporada de verano"
+    ]
+  },
+  {
+    "slug": "guantes-industriales",
+    "nombre": "Guantes industriales",
+    "categoria": "descartables",
+    "subcategoria": "Guantes",
+    "imagenes": [
+      "/img/productos/guantes-industriales.webp"
+    ],
+    "descripcion": "Guantes de alta resistencia para limpieza pesada e industria.",
+    "detalle": "Guantes de alta resistencia para limpieza pesada e industria. Protegen las manos al usar químicos como desengrasantes, cloro o lavandina.",
+    "usos": [
+      "Limpieza pesada y uso de químicos",
+      "Industrias, talleres y depósitos",
+      "Equipos de limpieza institucional"
+    ]
+  },
+  {
+    "slug": "guantes-domesticos",
+    "nombre": "Guantes domésticos",
+    "categoria": "descartables",
+    "subcategoria": "Guantes",
+    "imagenes": [
+      "/img/productos/guantes-domesticos.webp"
+    ],
+    "descripcion": "Guantes de látex para limpieza general.",
+    "detalle": "Guantes de látex para limpieza general.",
+    "usos": [
+      "Limpieza diaria de baños y cocinas",
+      "Personal de limpieza de consorcios y oficinas",
+      "Lavado de vajilla"
+    ]
+  }
+]
