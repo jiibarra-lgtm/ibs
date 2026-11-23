@@ -7,6 +7,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { registrarEvento } from "@/lib/registro";
 import { REFERENCIAS_IA, leerConsent, track } from "@/lib/seo/track";
 
 const GTM = process.env.NEXT_PUBLIC_GTM_ID;
@@ -23,6 +24,7 @@ export default function Measurement() {
   useEffect(() => {
     const p = path || "/";
     if (p.startsWith("/admin")) return;
+    registrarEvento("visita");
     if (p.startsWith("/producto/")) track("ver_producto", { producto: p.split("/")[2] });
     else if (p.startsWith("/productos/")) track("ver_categoria", { categoria: p.split("/")[2] });
     else if (p.startsWith("/kits/")) track("ver_kit", { kit: p.split("/")[2] });

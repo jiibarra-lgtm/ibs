@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { site, waLink } from "@/lib/site";
+import { registrarCotizacion } from "@/lib/registro";
 import { descuentoPorCantidad, envioGratis, ofertaPara, proximaEscala, validarCupon, type Cupon } from "@/lib/promos";
 
 /** Codifica la lista para compartirla por link (va en el #, no se envía a ningún servidor). */
@@ -224,6 +225,11 @@ function CartDrawer() {
     ].filter(Boolean).join("\n");
     const msg = `Hola ${site.name}! Quiero cotizar:\n\n${det}${extra ? `\n\n${extra}` : ""}\n\nGracias!`;
     window.open(waLink(msg), "_blank", "noopener");
+    registrarCotizacion({
+      items: lines.map((l) => ({ slug: l.slug, nombre: l.nombre, cantidad: l.cantidad })),
+      cupon: cupon?.code, empresa, zona,
+      programado: programado.activo ? `${FRECUENCIAS[programado.frecuencia]} · ${MOMENTOS[programado.momento]}` : null,
+    });
   }
 
   function submitCupon(e: React.FormEvent) {

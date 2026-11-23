@@ -2,6 +2,8 @@
  * Capa de medición (GA4 / GTM / Google Ads / Meta Pixel). ARCHIVO NUEVO.
  * Envía eventos al dataLayer; GTM decide a qué plataforma mandarlos.
  */
+import { registrarEvento } from "@/lib/registro";
+
 declare global { interface Window { dataLayer?: unknown[]; gtag?: (...a: unknown[]) => void; fbq?: (...a: unknown[]) => void } }
 
 export type EventoSeo =
@@ -13,6 +15,8 @@ export function track(evento: EventoSeo, params: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: evento, ...params });
+  const v = params.producto ?? params.categoria ?? params.kit ?? params.articulo ?? params.plataforma ?? params.tipo ?? null;
+  registrarEvento(evento, v);
 }
 
 /** Plataformas de IA que pueden aparecer como referencia (document.referrer) */

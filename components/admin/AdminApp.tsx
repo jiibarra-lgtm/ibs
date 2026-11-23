@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Analitica, Cotizaciones, Usuarios } from "@/components/admin/Secciones";
 import AdminGate, { type AdminSession } from "./AdminGate";
 import { SB_BUCKET } from "@/lib/supabase";
 import type { Categoria, Producto } from "@/lib/catalog";
@@ -738,23 +739,9 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
           )}
 
           {/* ───────── COTIZACIONES / ANALÍTICA / USUARIOS ───────── */}
-          {(sec === "cotizaciones" || sec === "analitica" || sec === "usuarios") && (
-            <>
-              <PageHead title={label ?? ""} />
-              <Card>
-                <div className="ad-empty">
-                  <Icon n={sec === "cotizaciones" ? "receipt" : sec === "analitica" ? "chart" : "users"} size={36} />
-                  <b>{sec === "cotizaciones" ? "Registro de cotizaciones" : sec === "analitica" ? "Visitas y productos más vistos" : "Usuarios del panel"}</b>
-                  <p>{sec === "cotizaciones"
-                    ? "Cada cotización que un cliente envíe por WhatsApp va a quedar registrada acá, con productos, cupón y estado (nueva, respondida, cerrada)."
-                    : sec === "analitica"
-                      ? "Visitas, productos más vistos y más cotizados, cupones usados y de dónde llegan los clientes."
-                      : "Altas de usuarios con roles (superadmin, editor) e inicio de sesión con email."}</p>
-                  <small>Se habilita al conectar la base de datos.</small>
-                </div>
-              </Card>
-            </>
-          )}
+          {sec === "cotizaciones" && <Cotizaciones sb={sb} ok={ok} />}
+          {sec === "analitica" && <Analitica sb={sb} nombres={Object.fromEntries(productos.map((p) => [p.slug, p.nombre]))} />}
+          {sec === "usuarios" && <Usuarios sb={sb} email={email} ok={ok} />}
 
           {/* ───────── CONFIGURACIÓN ───────── */}
           {sec === "configuracion" && (

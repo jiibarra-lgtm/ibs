@@ -1142,3 +1142,28 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .ad-login-links { display: grid; gap: 6px; }
 .ad-login-links button { background: none; border: 0; color: #8b9ab3; text-decoration: underline; font-size: .82rem; cursor: pointer; text-align: left; padding: 0; }
 .ad-login-sep { text-align: center; font-size: .8rem; color: #8b9ab3; margin: 2px 0; }
+
+/* Analítica / cotizaciones / usuarios */
+.ad-seg { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.ad-seg button { padding: 7px 12px; border-radius: 10px; border: 1px solid var(--ln); color: var(--mu); font-size: .84rem; }
+.ad-seg button.on { background: rgba(63,182,160,.16); border-color: var(--ac); color: #fff; }
+.ad-an-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.ad-an-kpi { gap: 4px; }
+.ad-an-kpi small { color: var(--mu); font-size: .82rem; }
+.ad-an-kpi b { font-size: 1.9rem; color: #fff; }
+.ad-an-vacio { color: var(--mu); font-size: .9rem; }
+.ad-an-chart { display: grid; gap: 4px; height: 190px; align-items: end; }
+.ad-an-col { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; }
+.ad-an-col span { width: 100%; min-height: 2px; background: linear-gradient(180deg, var(--ac), rgba(63,182,160,.35)); border-radius: 5px 5px 2px 2px; }
+.ad-an-col small { font-size: .66rem; color: var(--mu); white-space: nowrap; }
+.ad-an-rank { list-style: none; display: grid; gap: 6px; padding: 0; margin: 0; }
+.ad-an-rank li { position: relative; display: flex; justify-content: space-between; gap: 12px; padding: 8px 10px; border-radius: 8px; overflow: hidden; font-size: .88rem; }
+.ad-an-bar { position: absolute; inset: 0 auto 0 0; background: rgba(63,182,160,.13); border-radius: 8px; }
+.ad-an-k, .ad-an-rank b { position: relative; }
+.ad-an-k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ad-cot-items { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: .92rem; }
+.ad-cot-tag { font-size: .78rem; padding: 4px 9px; border-radius: 99px; background: rgba(148,163,184,.1); color: var(--mu); }
+.ad-llaves { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.ad-llaves li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--ln); border-radius: 12px; }
+.ad-llaves small { display: block; color: var(--mu); font-size: .78rem; margin-top: 2px; }
+@media (max-width: 900px) { .ad-an-kpis { grid-template-columns: 1fr 1fr; } }
