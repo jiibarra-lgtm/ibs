@@ -13,7 +13,7 @@ export function decodeCart(code: string): CartItem[] {
   try {
     const json = decodeURIComponent(escape(atob(code.replace(/-/g, "+").replace(/_/g, "/"))));
     const arr = JSON.parse(json) as [string, number, string, string, 0 | [number, number, string[]]][];
-    return arr.filter((a) => typeof a[0] === "string" && typeof a[3] === "string" && a[3].startsWith("/img/")).slice(0, 80).map(([slug, cantidad, nombre, imagen, k]) => ({
+    return arr.filter((a) => typeof a[0] === "string" && typeof a[3] === "string" && (a[3].startsWith("/img/") || a[3].startsWith("https://khxtmxbdrcigddvskalk.supabase.co/"))).slice(0, 80).map(([slug, cantidad, nombre, imagen, k]) => ({
       slug: String(slug).slice(0, 120), cantidad: Math.max(1, Math.min(9999, Number(cantidad) || 1)), nombre: String(nombre).slice(0, 160), imagen,
       ...(k ? { kit: { off: Math.min(50, Number(k[0]) || 0), unidades: Number(k[1]) || 1, detalle: (k[2] || []).map(String).slice(0, 30) } } : {}),
     }));

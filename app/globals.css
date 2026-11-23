@@ -1129,3 +1129,15 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .md-table td { padding: 10px 12px; border-top: 1px solid #ece6d8; vertical-align: top; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Login del panel */
+.ad-login { position: fixed; inset: 0; z-index: 200; overflow: auto; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 30% 20%, #17223a, #0b1220 60%); padding: 20px; --bg: #0b1220; --ln: rgba(148,163,184,.14); --tx: #e2e8f0; --mu: #8b9ab3; --ac: #3fb6a0; color: #e2e8f0; }
+.ad-login-card { width: 100%; max-width: 380px; background: #111a2e; border: 1px solid rgba(148,163,184,.14); border-radius: 20px; padding: 30px; display: grid; gap: 14px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+.ad-login-card h1 { font-size: 1.25rem; margin: 0 0 4px; color: #fff; }
+.ad-login-card label { display: grid; gap: 6px; font-size: .85rem; color: #8b9ab3; }
+.ad-login-card input { background: #0b1220; border: 1px solid rgba(148,163,184,.2); border-radius: 10px; padding: 11px 12px; color: #e2e8f0; font-size: .95rem; }
+.ad-login-card .ad-btn { justify-content: center; }
+.ad-login-msg { font-size: .85rem; color: #d9b968; margin: 0; }
+.ad-login-err { color: #f87171; font-size: .9rem; margin: 0; }
+.ad-login-links { display: grid; gap: 6px; }
+.ad-login-links button { background: none; border: 0; color: #8b9ab3; text-decoration: underline; font-size: .82rem; cursor: pointer; text-align: left; padding: 0; }

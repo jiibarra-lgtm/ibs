@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import AdminGate, { type AdminSession } from "./AdminGate";
+import { SB_BUCKET } from "@/lib/supabase";
 import type { Categoria, Producto } from "@/lib/catalog";
 import type tiendaJson from "@/data/tienda.json";
 import { Card, Field, Icon, PageHead, Row, Toggle } from "./ui";
@@ -58,7 +60,14 @@ const slugify = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]
 
 type Guia = { slug: string; titulo: string; resumen: string; categoria: string; fecha: string; minutos: number; imagen: string; productos: string[]; kit?: string; contenido: string };
 
-export default function AdminApp(props: { tienda: Tienda; productos: Producto[]; categorias: Categoria[]; testimonios: { texto: string; nombre: string; cargo?: string }[]; guias: Guia[] }) {
+type Props = { tienda: Tienda; productos: Producto[]; categorias: Categoria[]; testimonios: { texto: string; nombre: string; cargo?: string }[]; guias: Guia[] };
+
+export default function AdminApp(props: Props) {
+  return <AdminGate>{(s) => <AdminPanel {...props} sesion={s} />}</AdminGate>;
+}
+
+function AdminPanel(props: Props & { sesion: AdminSession }) {
+  const { sb, session, email, salir } = props.sesion;
   const [sec, setSec] = useState<Sec>("inicio");
   const [menu, setMenu] = useState(false);
   const [t, setT] = useState<Tienda>(props.tienda);
@@ -74,7 +83,12 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
   const [q, setQ] = useState("");
   const [fCat, setFCat] = useState("todas");
 
-  const ok = (m: string) => { setToast(m); setTimeout(() => setToast(""), 2200); };
+  const ok = (m: string) => { setToast(m); setTimeout(() => setToast(""), 3200); };
+  const [guardando, setGuardando] = useState(false);
+  const [subiendo, setSubiendo] = useState(false);
+  const base = useRef({ productos: JSON.stringify(props.productos), categorias: JSON.stringify(props.categorias), contenido: JSON.stringify([props.tienda, props.testimonios, props.guias]), slugs: props.productos.map((p) => p.slug), imgs: Object.fromEntries(props.productos.map((p) => [p.slug, JSON.stringify(p.imagenes)])) });
+  const catalogoCambio = JSON.stringify(productos) !== base.current.productos || JSON.stringify(categorias) !== base.current.categorias;
+  const contenidoCambio = JSON.stringify([t, tests, guias]) !== base.current.contenido;
   const upd = <K extends keyof Tienda>(k: K, v: Tienda[K]) => { setT((p) => ({ ...p, [k]: v })); setDirty(true); };
   const setProds = (f: (p: Producto[]) => Producto[]) => { setProductos(f); setDirty(true); };
   const catName = useMemo(() => Object.fromEntries(categorias.map((c) => [c.slug, c.nombre])), [categorias]);
@@ -87,7 +101,7 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
     return () => window.removeEventListener("beforeunload", h);
   }, [dirty]);
 
-  function exportar() {
+  function exportarContenido() {
     const codes = new Set(t.cupones.map((c) => c.code));
     const extra = t.eventos.filter((e) => !codes.has(e.cupon)).map((e) => ({ code: e.cupon, off: e.off, desc: `${e.off}% OFF ${e.nombre}`, desde: e.desde, vence: e.hasta, oculto: true }));
     const cupones = t.cupones.map((c) => {
@@ -95,12 +109,66 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
       return e ? { ...c, off: e.off, desde: e.desde, vence: e.hasta, oculto: true } : c;
     });
     download("tienda.json", { ...t, cupones: [...cupones, ...extra] });
-    setTimeout(() => download("productos.json", productos), 300);
-    setTimeout(() => download("categorias.json", categorias), 600);
-    setTimeout(() => download("testimonios.json", tests), 900);
-    setTimeout(() => download("guias.json", guias), 1200);
-    setDirty(false);
-    ok("✓ Archivos descargados — reemplazalos en /data y publicá");
+    setTimeout(() => download("testimonios.json", tests), 300);
+    setTimeout(() => download("guias.json", guias), 600);
+    base.current.contenido = JSON.stringify([t, tests, guias]);
+  }
+
+  /** Guarda productos y categorías en Supabase y actualiza la web al instante. */
+  async function guardarCatalogo() {
+    const cats = categorias.map((c, i) => ({ slug: c.slug, nombre: c.nombre, icono: c.icono, descripcion: c.descripcion, intro: c.intro ?? null, faqs: c.faqs ?? [], orden: i + 1 }));
+    const r1 = await sb.from("categorias").upsert(cats, { onConflict: "slug" });
+    if (r1.error) throw new Error(`Categorías: ${r1.error.message}`);
+    const filas = productos.map((p, i) => ({
+      slug: p.slug, nombre: p.nombre, descripcion: p.descripcion, categoria: p.categoria, subcategoria: p.subcategoria ?? null,
+      imagen_url: p.imagenes[0] ?? null, destacado: !!p.destacado, badge: p.badge ?? null, fabricacion_propia: !!p.fabricacionPropia,
+      detalle: p.detalle ?? null, usos: p.usos ?? [], visible: p.visible !== false, orden: i + 1,
+    }));
+    const r2 = await sb.from("productos").upsert(filas, { onConflict: "slug" }).select("id,slug");
+    if (r2.error) throw new Error(`Productos: ${r2.error.message}`);
+    const ids = Object.fromEntries((r2.data ?? []).map((x) => [x.slug, x.id]));
+    for (const p of productos) {
+      if (base.current.imgs[p.slug] === JSON.stringify(p.imagenes) || !ids[p.slug]) continue;
+      await sb.from("producto_imagenes").delete().eq("producto_id", ids[p.slug]);
+      if (p.imagenes.length) {
+        const r = await sb.from("producto_imagenes").insert(p.imagenes.map((url, k) => ({ producto_id: ids[p.slug], imagen_url: url, orden: k })));
+        if (r.error) throw new Error(`Imágenes de ${p.nombre}: ${r.error.message}`);
+      }
+    }
+    const borrados = base.current.slugs.filter((x) => !productos.some((p) => p.slug === x));
+    if (borrados.length) {
+      const r3 = await sb.from("productos").update({ visible: false }).in("slug", borrados);
+      if (r3.error) throw new Error(`Ocultar productos: ${r3.error.message}`);
+    }
+    await fetch("/api/revalidar", { method: "POST", headers: { Authorization: `Bearer ${session.access_token}` } });
+    base.current = { ...base.current, productos: JSON.stringify(productos), categorias: JSON.stringify(categorias), slugs: productos.map((p) => p.slug), imgs: Object.fromEntries(productos.map((p) => [p.slug, JSON.stringify(p.imagenes)])) };
+  }
+
+  async function guardar() {
+    setGuardando(true);
+    try {
+      if (catalogoCambio) await guardarCatalogo();
+      if (contenidoCambio) exportarContenido();
+      setDirty(false);
+      ok(catalogoCambio && contenidoCambio ? "✓ Catálogo publicado. El resto de los cambios se descargó para publicar."
+        : catalogoCambio ? "✓ Guardado: ya está en la web" : contenidoCambio ? "✓ Archivos descargados: pasáselos a Claude para publicarlos" : "No hay cambios");
+    } catch (e) {
+      ok(`✗ No se pudo guardar: ${(e as Error).message}`);
+    } finally {
+      setGuardando(false);
+    }
+  }
+
+  async function subirFoto(file: File) {
+    if (!edit) return;
+    setSubiendo(true);
+    const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+    const path = `producto_${Date.now()}_${Math.random().toString(36).slice(2, 10)}.${ext}`;
+    const { error } = await sb.storage.from(SB_BUCKET).upload(path, file, { contentType: file.type, upsert: false });
+    setSubiendo(false);
+    if (error) { ok(`✗ No se pudo subir la foto: ${error.message}`); return; }
+    const url = sb.storage.from(SB_BUCKET).getPublicUrl(path).data.publicUrl;
+    setEdit({ ...edit, imagenes: [...edit.imagenes, url] });
   }
 
   const label = NAV.flatMap((g) => g.items).find((i) => i.id === sec)?.label;
@@ -111,7 +179,7 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
       <div className={`ad-scrim ${menu ? "on" : ""}`} onClick={() => setMenu(false)} />
       <aside className={`ad-side ${menu ? "on" : ""}`}>
         <div className="ad-brand">
-          <span className="ad-logo"><img src="/img/marca/isotipo.png" alt="" width={26} height={32} /></span>
+          <span className="ad-logo"><img src="/img/marca/isotipo.webp" alt="" width={26} height={32} /></span>
           <b>Ibarra Insumos</b>
           <button className="ad-close" onClick={() => setMenu(false)} aria-label="Cerrar menú"><Icon n="x" /></button>
         </div>
@@ -128,9 +196,9 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
           ))}
         </nav>
         <div className="ad-me">
-          <b>Juani</b>
-          <small>Superadmin · {"info@ibarrainsumos.com.ar"}</small>
-          <button className="ad-logout" disabled title="Disponible al conectar el login">Cerrar sesión</button>
+          <b>Administrador</b>
+          <small>{email}</small>
+          <button className="ad-logout" onClick={salir}>Cerrar sesión</button>
         </div>
       </aside>
 
@@ -141,12 +209,12 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
           <span className="ad-crumb">Panel / <b>{label}</b></span>
           <div className="ad-top-act">
             <a className="ad-btn ad-btn--ghost" href="/" target="_blank" rel="noopener"><Icon n="external" size={16} /> <span>Ver tienda</span></a>
-            <button className={`ad-btn ${dirty ? "ad-btn--pulse" : ""}`} onClick={exportar}><Icon n="download" size={16} /> <span>{dirty ? "Exportar cambios" : "Exportar"}</span></button>
+            <button className={`ad-btn ${catalogoCambio || contenidoCambio ? "ad-btn--pulse" : ""}`} disabled={guardando} onClick={guardar}><Icon n="download" size={16} /> <span>{guardando ? "Guardando…" : catalogoCambio || contenidoCambio ? "Guardar cambios" : "Guardado"}</span></button>
           </div>
         </div>
 
         <div className="ad-content">
-          {dirty && <div className="ad-note">Tenés cambios sin exportar. Hasta conectar la base, “Exportar” descarga los archivos para reemplazar en <code>/data</code>.</div>}
+          {(catalogoCambio || contenidoCambio) && <div className="ad-note">Tenés cambios sin guardar. {catalogoCambio && "Productos y categorías se publican al instante al tocar “Guardar cambios”. "}{contenidoCambio && "Los cambios de portada, popup, promos, guías y testimonios se descargan como archivos: pasáselos a Claude para publicarlos."}</div>}
 
           {/* ───────── RESUMEN ───────── */}
           {sec === "inicio" && (
@@ -201,7 +269,7 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
                       <img src={p.imagenes[0]} alt="" />
                       <div className="ad-item-main">
                         <b>{p.nombre}</b>
-                        <small>{catName[p.categoria]}{p.fabricacionPropia ? " · 🏭 Propio" : ""}{p.badge ? ` · ${p.badge}` : ""}{typeof p.precio === "number" ? ` · $${p.precio.toLocaleString("es-AR")}` : ""}</small>
+                        <small>{p.visible === false ? "🚫 Oculto · " : ""}{catName[p.categoria]}{p.fabricacionPropia ? " · 🏭 Propio" : ""}{p.badge ? ` · ${p.badge}` : ""}{typeof p.precio === "number" ? ` · $${p.precio.toLocaleString("es-AR")}` : ""}</small>
                       </div>
                       <label className="ad-inline"><small>Destacado</small><Toggle on={!!p.destacado} onChange={(v) => setProds((a) => a.map((x) => x.slug === p.slug ? { ...x, destacado: v } : x))} /></label>
                       <button className="ad-link" onClick={() => setEdit(p)}>Editar</button>
@@ -707,8 +775,10 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
             <div className="ad-drawer-body">
               <div className="ad-imgs">
                 {edit.imagenes.map((src) => <img key={src} src={src} alt="" />)}
+                <label className="ad-btn ad-btn--ghost ad-btn--sm" style={{ cursor: "pointer" }}>{subiendo ? "Subiendo…" : "📷 Subir foto"}<input type="file" accept="image/*" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) subirFoto(f); e.target.value = ""; }} /></label>
+                {edit.imagenes.length > 0 && <button type="button" className="ad-link ad-danger" onClick={() => setEdit({ ...edit, imagenes: edit.imagenes.slice(0, -1) })}>Quitar última</button>}
                 <select value="" onChange={(e) => e.target.value && setEdit({ ...edit, imagenes: [...edit.imagenes, e.target.value] })}>
-                  <option value="">+ Imagen</option>
+                  <option value="">+ Imagen existente</option>
                   {Array.from(new Set(productos.flatMap((p) => p.imagenes))).map((src) => <option key={src} value={src}>{src.split("/").pop()}</option>)}
                 </select>
               </div>
@@ -720,13 +790,13 @@ export default function AdminApp(props: { tienda: Tienda; productos: Producto[];
                 <Field label="Categoría"><select value={edit.categoria} onChange={(e) => setEdit({ ...edit, categoria: e.target.value })}>{categorias.map((c) => <option key={c.slug} value={c.slug}>{c.nombre}</option>)}</select></Field>
                 <Field label="Subcategoría"><input value={edit.subcategoria ?? ""} onChange={(e) => setEdit({ ...edit, subcategoria: e.target.value })} /></Field>
                 <Field label="Etiqueta"><select value={edit.badge ?? ""} onChange={(e) => setEdit({ ...edit, badge: e.target.value || undefined })}>{["", "Más vendido", "Nuevo", "Rinde más", "Últimas unidades"].map((b) => <option key={b} value={b}>{b || "Sin etiqueta"}</option>)}</select></Field>
-                <Field label="Precio (opcional)"><input type="number" placeholder="Consultar" value={edit.precio ?? ""} onChange={(e) => setEdit({ ...edit, precio: e.target.value ? +e.target.value : undefined })} /></Field>
               </div>
+              <Row label="Visible en la web" desc="Apagalo para ocultar el producto sin borrarlo"><Toggle on={edit.visible !== false} onChange={(v) => setEdit({ ...edit, visible: v })} /></Row>
               <Row label="Destacado en portada"><Toggle on={!!edit.destacado} onChange={(v) => setEdit({ ...edit, destacado: v })} /></Row>
               <Row label="🏭 Fabricación propia" desc="Muestra la etiqueta en la tarjeta y la ficha"><Toggle on={!!edit.fabricacionPropia} onChange={(v) => setEdit({ ...edit, fabricacionPropia: v })} /></Row>
             </div>
             <footer>
-              {edit.slug && <button className="ad-link ad-danger" onClick={() => { setProds((a) => a.filter((p) => p.slug !== edit.slug)); setEdit(null); ok("Producto eliminado"); }}>Eliminar</button>}
+              {edit.slug && <button className="ad-link ad-danger" onClick={() => { setProds((a) => a.filter((p) => p.slug !== edit.slug)); setEdit(null); ok("Producto quitado: se oculta de la web al guardar"); }}>Quitar de la web</button>}
               <button className="ad-btn" disabled={!edit.nombre.trim()} onClick={() => {
                 const p = { ...edit, slug: edit.slug || slugify(edit.nombre) };
                 setProds((a) => a.some((x) => x.slug === p.slug) ? a.map((x) => x.slug === p.slug ? p : x) : [p, ...a]);

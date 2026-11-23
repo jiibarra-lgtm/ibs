@@ -5,7 +5,7 @@ import { getCategoria, getProducto, getProductos, getProductosPorCategoria } fro
 import { ProductView } from "@/components/Bits";
 import ProductCard from "@/components/ProductCard";
 import { getGuias } from "@/lib/guias";
-import { site } from "@/lib/site";
+import { absUrl, site } from "@/lib/site";
 import { complementos } from "@/lib/promos";
 import { Marquee } from "@/components/Fx";
 
@@ -38,7 +38,7 @@ export default async function ProductoPage({ params }: Props) {
   const ld = {
     "@context": "https://schema.org", "@type": "Product",
     name: p.nombre, description: p.descripcion, category: c?.nombre,
-    image: p.imagenes.map((i) => `${site.url}${i}`),
+    image: p.imagenes.map(absUrl),
     brand: { "@type": "Brand", name: site.name },
     sku: p.slug, url: `${site.url}/producto/${p.slug}`,
     ...(p.fabricacionPropia ? { manufacturer: { "@type": "Organization", name: site.name } } : {}),

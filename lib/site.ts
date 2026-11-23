@@ -28,3 +28,6 @@ export function waLink(text?: string) {
   const base = `https://wa.me/${site.whatsapp}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }
+
+/** URL absoluta para imágenes (locales o de Supabase). */
+export const absUrl = (src: string) => (src.startsWith("http") ? src : `${site.url}${src}`);
