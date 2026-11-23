@@ -23,6 +23,16 @@ const config: NextConfig = {
         { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         { key: "X-Frame-Options", value: "SAMEORIGIN" },
       ],
+    }, {
+      source: "/admin",
+      headers: [
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+        { key: "Cache-Control", value: "no-store" },
+        { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        { key: "Referrer-Policy", value: "no-referrer" },
+        { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+      ],
     }];
   },
 };
