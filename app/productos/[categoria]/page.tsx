@@ -5,6 +5,7 @@ import { getCategoria, getCategorias, getProductosPorCategoria } from "@/lib/cat
 import ProductCard from "@/components/ProductCard";
 import { site, waLink } from "@/lib/site";
 import Md from "@/components/Md";
+import { getGuias } from "@/lib/guias";
 
 type Props = { params: Promise<{ categoria: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!c) return {};
   return {
     title: `${c.nombre} por mayor en Buenos Aires`,
-    description: c.descripcion.length > 158 ? `${c.descripcion.slice(0, 150).replace(/\s+\S*$/, "")}…` : c.descripcion,
+    description: c.descripcion.length < 70 ? `${c.descripcion} Venta por mayor para instituciones y empresas, con entrega en CABA y GBA.` : c.descripcion.length > 158 ? `${c.descripcion.slice(0, 150).replace(/\s+\S*$/, "")}…` : c.descripcion,
     alternates: { canonical: `/productos/${c.slug}` },
   };
 }
@@ -26,6 +27,8 @@ export default async function CategoriaPage({ params }: Props) {
   const slug = (await params).categoria;
   const [c, productos, todas] = await Promise.all([getCategoria(slug), getProductosPorCategoria(slug), getCategorias()]);
   if (!c) notFound();
+  const slugs = new Set(productos.map((p) => p.slug));
+  const guiasCat = (await getGuias()).filter((g) => g.productos.some((s) => slugs.has(s))).slice(0, 4);
   const ld = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: `${site.url}/` },
@@ -70,6 +73,12 @@ export default async function CategoriaPage({ params }: Props) {
         <section className="section section--white">
           <div className="wrap">
             {c.intro && <div className="cat-intro"><h2 className="section-title" style={{ fontSize: "1.5rem" }}>{c.nombre} por mayor</h2><Md src={c.intro} /></div>}
+            {guiasCat.length > 0 && (
+              <div className="cat-intro">
+                <h2 className="section-title" style={{ fontSize: "1.3rem" }}>Guías sobre {c.nombre.toLowerCase()}</h2>
+                <ul className="checks">{guiasCat.map((g) => <li key={g.slug}><Link href={`/guias/${g.slug}`} style={{ textDecoration: "underline" }}>{g.titulo}</Link></li>)}</ul>
+              </div>
+            )}
             {c.faqs && c.faqs.length > 0 && (
               <div className="p-faq" style={{ maxWidth: 860, margin: "0 auto" }}>
                 <h2 className="section-title" style={{ fontSize: "1.4rem" }}>Preguntas frecuentes sobre {c.nombre.toLowerCase()}</h2>

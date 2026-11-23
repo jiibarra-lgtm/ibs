@@ -25,7 +25,9 @@ export default async function GuiaPage({ params }: Props) {
   const [prods, kits, todas] = await Promise.all([getProductos(), getKitViews(), getGuias()]);
   const ps = g.productos.map((s) => prods.find((p) => p.slug === s)).filter((p): p is NonNullable<typeof p> => !!p);
   const kit = kits.find((k) => k.slug === g.kit);
-  const otras = todas.filter((x) => x.slug !== g.slug).slice(0, 3);
+  const resto = todas.filter((x) => x.slug !== g.slug);
+  const comparte = (x: typeof g) => x.productos.filter((s) => g.productos.includes(s)).length + (x.categoria === g.categoria ? 1 : 0);
+  const otras = resto.slice().sort((a, b) => comparte(b) - comparte(a)).slice(0, 3);
   const ld = {
     "@context": "https://schema.org", "@type": "Article", headline: g.titulo, description: g.resumen, datePublished: g.fecha,
     dateModified: g.fecha, mainEntityOfPage: `${site.url}/guias/${g.slug}`, inLanguage: "es-AR",
@@ -45,14 +47,14 @@ export default async function GuiaPage({ params }: Props) {
             <span className="kit-rubro">{g.categoria} · {g.minutos} min de lectura</span>
             <h1 className="g-title">{g.titulo}</h1>
             <p className="g-lead">{g.resumen}</p>
-            <div className="g-hero"><img src={g.imagen} alt="" /></div>
+            <div className="g-hero"><img src={g.imagen} alt={g.titulo} /></div>
             <Md src={g.contenido} />
             <p className="g-by">Por el equipo de <Link href="/quienes-somos">{site.name}</Link>, fabricantes y distribuidores desde {site.founded}. Actualizado el {new Date(g.fecha + "T12:00:00").toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric" })}.</p>
           </div>
           <aside className="g-side">
             <div className="g-side-box">
               <b>Productos de esta guía</b>
-              {ps.map((p) => <Link key={p.slug} href={`/producto/${p.slug}`} className="g-side-p"><img src={p.imagenes[0]} alt="" /><span>{p.nombre}</span></Link>)}
+              {ps.map((p) => <Link key={p.slug} href={`/producto/${p.slug}`} className="g-side-p"><img src={p.imagenes[0]} alt={p.nombre} /><span>{p.nombre}</span></Link>)}
               <Link className="btn btn-primary btn-sm btn-block" href="/carga-rapida">⚡ Cotizar mi lista</Link>
             </div>
           </aside>

@@ -7,6 +7,11 @@ import { eventoActivo, type Banner, type PopupCfg } from "@/lib/promos";
 import type { EventoView } from "./Events";
 import { useCart } from "./CartProvider";
 
+/** Versiones livianas de imágenes grandes del carrusel (mejora el LCP en celulares). */
+const SRCSET: Record<string, string> = {
+  "/img/marca/planta.webp": "/img/marca/planta-800.webp 800w, /img/marca/planta.webp 1400w",
+};
+
 /** Imagen que "vuela" hasta el botón del carrito */
 export function flyToCart(img: HTMLImageElement | null) {
   if (!img || typeof window === "undefined") return;
@@ -114,7 +119,7 @@ export function HeroSlider({ banners, flotantes, segundos = 7 }: { banners: Bann
               </div>
               <div className="slide-visual">
                 <div className={`slide-img ${b.imagen.includes("/productos/") ? "slide-img--prod" : ""}`}>
-                  <img src={b.imagen} alt={b.imagen.includes("/marca/") ? "Planta y depósito de Ibarra Insumos" : b.titulo} fetchPriority={k === 0 ? "high" : "low"} loading={k === 0 ? "eager" : "lazy"} />
+                  <img src={b.imagen} srcSet={SRCSET[b.imagen]} sizes={SRCSET[b.imagen] ? "(max-width: 760px) 92vw, 560px" : undefined} alt={b.imagen.includes("/marca/") ? "Planta y depósito de Ibarra Insumos" : b.titulo} fetchPriority={k === 0 ? "high" : "low"} loading={k === 0 ? "eager" : "lazy"} />
                 </div>
                 {k === 0 && flotantes.map((src, j) => <div key={src} className={`float-card fc-${j + 1}`}><img src={src} alt="" aria-hidden="true" /></div>)}
               </div>

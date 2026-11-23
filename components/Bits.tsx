@@ -45,11 +45,11 @@ function Gallery({ nombre, imagenes }: { nombre: string; imagenes: string[] }) {
   const [img, setImg] = useState(0);
   return (
     <div className="pdp-gallery">
-      <div className="gallery-main"><img key={img} className="fade-in" src={imagenes[img]} alt={nombre} width={600} height={600} /></div>
+      <div className="gallery-main"><img key={img} className={img ? "fade-in" : undefined} src={imagenes[img]} alt={nombre} width={600} height={600} fetchPriority={img ? undefined : "high"} /></div>
       {imagenes.length > 1 && (
         <div className="thumbs">
           {imagenes.map((src, i) => (
-            <button key={src} className={i === img ? "on" : ""} onClick={() => setImg(i)} aria-label={`Imagen ${i + 1}`}><img src={src} alt="" /></button>
+            <button key={src} className={i === img ? "on" : ""} onClick={() => setImg(i)} aria-label={`Ver imagen ${i + 1} de ${nombre}`}><img src={src} alt={`${nombre}, imagen ${i + 1}`} /></button>
           ))}
         </div>
       )}

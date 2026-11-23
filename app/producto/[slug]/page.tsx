@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getCategoria, getProducto, getProductos, getProductosPorCategoria } from "@/lib/catalog";
 import { ProductView } from "@/components/Bits";
 import ProductCard from "@/components/ProductCard";
+import { getGuias } from "@/lib/guias";
 import { site } from "@/lib/site";
 import { complementos } from "@/lib/promos";
 import { Marquee } from "@/components/Fx";
@@ -17,7 +18,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = await getProducto((await params).slug);
   if (!p) return {};
-  const desc = `${p.descripcion} Por mayor, entrega en CABA y GBA.`;
+  const desc = p.descripcion.length < 50 ? `${p.descripcion} Venta por mayor con descuento por cantidad y entrega en CABA y GBA. Cotizá por WhatsApp.` : `${p.descripcion} Por mayor, entrega en CABA y GBA.`;
   return {
     title: `${p.nombre} por mayor`.length > 46 ? { absolute: `${p.nombre} por mayor` } : `${p.nombre} por mayor`,
     description: desc.length > 158 ? `${p.descripcion.slice(0, 150).replace(/\s+\S*$/, "")}…` : desc,
@@ -32,6 +33,7 @@ export default async function ProductoPage({ params }: Props) {
   const [c, relacionados] = await Promise.all([getCategoria(p.categoria), getProductosPorCategoria(p.categoria)]);
   const todos = await getProductos();
   const comp = (complementos[p.slug] ?? []).map((s) => todos.find((t) => t.slug === s)).filter((x): x is NonNullable<typeof x> => !!x);
+  const guiasRel = (await getGuias()).filter((g) => g.productos.includes(p.slug) || g.categoria.toLowerCase() === (c?.nombre ?? "").toLowerCase()).slice(0, 3);
   const otros = relacionados.filter((r) => r.slug !== p.slug && !comp.some((c) => c.slug === r.slug)).slice(0, 4);
   const ld = {
     "@context": "https://schema.org", "@type": "Product",
@@ -105,6 +107,14 @@ export default async function ProductoPage({ params }: Props) {
           {faqs.map((f) => <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}
         </div>
       </section>
+      {guiasRel.length > 0 && (
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="wrap" style={{ maxWidth: 860 }}>
+            <h2 className="section-title" style={{ fontSize: "1.4rem" }}>Guías para elegir y usar {p.nombre.toLowerCase()}</h2>
+            <ul className="checks">{guiasRel.map((g) => <li key={g.slug}><Link href={`/guias/${g.slug}`} style={{ textDecoration: "underline" }}>{g.titulo}</Link></li>)}</ul>
+          </div>
+        </section>
+      )}
       {otros.length > 0 && (
         <section className="section">
           <div className="wrap">

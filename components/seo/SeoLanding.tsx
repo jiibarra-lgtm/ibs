@@ -84,6 +84,7 @@ export default async function SeoLanding({ slug }: { slug: string }) {
                 <h2>{sec.h2}</h2>
                 {sec.p && <p>{sec.p}</p>}
                 {sec.items && <ul>{sec.items.map((it) => <li key={it}>{it}</li>)}</ul>}
+                {sec.link && <p><a href={sec.link.href} target="_blank" rel="noopener" style={{ textDecoration: "underline", fontWeight: 700 }}>{sec.link.label} →</a></p>}
               </section>
             ))}
             {l.tabla && (

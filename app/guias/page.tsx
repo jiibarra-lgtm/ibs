@@ -24,7 +24,7 @@ export default async function Guias() {
         <div className="wrap">
           {first && (
             <Link href={`/guias/${first.slug}`} className="g-feat reveal">
-              <div className="g-feat-img"><img src={first.imagen} alt="" /></div>
+              <div className="g-feat-img"><img src={first.imagen} alt={first.titulo} /></div>
               <div><span className="kit-rubro">{first.categoria} · {first.minutos} min</span><h2>{first.titulo}</h2><p>{first.resumen}</p><span className="go">Leer guía →</span></div>
             </Link>
           )}

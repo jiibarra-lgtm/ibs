@@ -22,7 +22,7 @@ export default async function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <img src="/img/marca/isotipo.png" alt="" width={48} height={58} style={{ marginBottom: 12 }} />
+            <img src="/img/marca/isotipo.webp" alt="" width={48} height={58} style={{ marginBottom: 12 }} />
             <p><b style={{ color: "#fff" }}>Fabricantes y distribuidores</b> de productos de limpieza, higiene institucional y descartables. Empresa familiar desde {site.founded}.</p>
             {site.dataFiscalUrl && (
               <a href={site.dataFiscalUrl} target="_blank" rel="noopener" aria-label="Data fiscal">
@@ -36,7 +36,7 @@ export default async function Footer() {
           </div>
           <div>
             <h4>Soluciones</h4>
-            <ul>{SOLUCIONES.map(([slug, label]) => <li key={slug}><Link href={`/${slug}`}>{label}</Link></li>)}</ul>
+            <ul>{SOLUCIONES.map(([slug, label]) => <li key={slug}><Link href={`/${slug}`}>{label}</Link></li>)}<li><a href="https://www.bolsasmortuoriasibarra.com.ar/" target="_blank" rel="noopener">Bolsas mortuorias por mayor</a></li></ul>
           </div>
           <div>
             <h4>Empresa</h4>

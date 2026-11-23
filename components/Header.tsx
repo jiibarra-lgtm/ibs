@@ -29,7 +29,7 @@ export default function Header() {
       <header className="header">
         <div className="wrap">
           <Link href="/" className="logo" aria-label={`${site.name} — inicio`}>
-            <img src="/img/marca/isotipo.png" alt="" width={36} height={44} />
+            <img src="/img/marca/isotipo.webp" alt="" width={36} height={44} />
             <span className="logo-txt"><b>IBARRA</b><span>INSUMOS</span><small>Fabricantes y distribuidores</small></span>
           </Link>
           <nav className="nav" aria-label="Principal">

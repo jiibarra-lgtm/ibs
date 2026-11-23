@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <h1 className="section-title">{n.titulo}</h1>
           {n.video
             ? <video className="about-video" src={n.video} poster={n.imagen} autoPlay muted loop playsInline preload="metadata" style={{ margin: "20px 0" }} />
-            : <img src={n.imagen} alt="" style={{ width: "100%", borderRadius: 20, margin: "20px 0" }} />}
+            : <img src={n.imagen} alt={n.titulo} style={{ width: "100%", borderRadius: 20, margin: "20px 0" }} />}
           <Md src={n.texto} />
           <p style={{ marginTop: 28 }}><Link href="/novedades" className="btn btn-sm btn-outline">← Todas las novedades</Link></p>
         </div>

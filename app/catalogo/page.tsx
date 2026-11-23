@@ -19,7 +19,7 @@ export default async function CatalogoPrint() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16, marginBottom: 28 }}>
           <div>
             <h1 className="sr-only">Catálogo de productos de limpieza de Ibarra Insumos</h1>
-            <div className="logo"><img src="/img/marca/isotipo.png" alt="" width={44} height={54} /><span className="logo-txt"><b>IBARRA</b><span>INSUMOS</span></span></div>
+            <div className="logo"><img src="/img/marca/isotipo.webp" alt="" width={44} height={54} /><span className="logo-txt"><b>IBARRA</b><span>INSUMOS</span></span></div>
             <p className="note" style={{ marginTop: 6 }}>{site.phoneDisplay} · {site.email} · WhatsApp {site.phoneDisplay}</p>
           </div>
           <PrintButton />

@@ -4,7 +4,7 @@
  * Todo el contenido usa solo datos reales de la empresa (lib/site.ts, FAQ y catálogo).
  */
 
-export type Seccion = { h2: string; p?: string; items?: string[] };
+export type Seccion = { h2: string; p?: string; items?: string[]; link?: { href: string; label: string } };
 export type Tabla = { titulo: string; columnas: string[]; filas: string[][] };
 export type Landing = {
   slug: string;
@@ -146,6 +146,7 @@ export const landings: Landing[] = [
     secciones: [
       { h2: "Insumos más pedidos por instituciones de salud", items: ["Alcohol en gel en bidón para recarga de dispensers y alcohol al 70% líquido.", "Toallas intercaladas y papel higiénico jumbo.", "Lavandina concentrada para desinfección de superficies, según rótulo.", "Guantes y elementos para el equipo de limpieza.", "Dispensers de jabón, alcohol en gel y papeles."] },
       { h2: "Compras públicas", p: "Somos proveedores del Gobierno de la Ciudad de Buenos Aires y participamos en compras públicas (BAC y Convenios Marco). Emitimos factura A y B." },
+      { h2: "Bolsas mortuorias (bolsas de óbito)", p: "También vendemos por mayor bolsas mortuorias de PVC para instituciones de salud: adulto, adulto obeso (PVC reforzado), pediátrica y neonatal, en negro y en rojo. El rojo se usa en protocolos de patologías infectocontagiosas. Tienen su propio catálogo con cotización.", link: { href: "https://www.bolsasmortuoriasibarra.com.ar/", label: "Ver bolsas mortuorias por mayor" } },
       COMO_TRABAJAMOS,
     ],
     productos: ["alcohol-en-gel-5-litros", "alcohol-70-bidon", "toallas-intercaladas", "papel-higienico-jumbo", "lavandina-concentrada", "guantes-domesticos"],
@@ -156,6 +157,7 @@ export const landings: Landing[] = [
     faqs: [
       { q: "¿Proveen a hospitales públicos?", a: "Sí. Somos proveedores del Gobierno de la Ciudad de Buenos Aires y participamos en compras públicas (BAC y Convenios Marco)." },
       { q: "¿Qué alcohol en gel conviene para dispensers?", a: "Alcohol en gel en bidón para recarga. El alcohol al 70% líquido no es compatible con dispensers de gel." },
+      { q: "¿Venden bolsas mortuorias?", a: "Sí, bolsas mortuorias de PVC por mayor en versiones adulto, adulto obeso, pediátrica y neonatal, en negro y en rojo. Se cotizan en bolsasmortuoriasibarra.com.ar o por WhatsApp." },
     ],
     keywords: ["insumos hospitalarios de limpieza", "insumos de limpieza para hospitales", "productos de limpieza para clínicas", "proveedor de limpieza hospitalaria", "alcohol en gel por mayor hospitales"],
   },

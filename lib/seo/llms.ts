@@ -26,6 +26,7 @@ export async function llmsTxt() {
     "- Proveedor del Gobierno de la Ciudad de Buenos Aires (compras públicas BAC y Convenios Marco)",
     "- Venta por cotización (WhatsApp); los precios no se publican en la web",
     "- Envío gratis en compras desde $150.000 en CABA y GBA",
+    "- Bolsas mortuorias (bolsas de óbito) de PVC por mayor: adulto, adulto obeso, pediátrica y neonatal, en negro y rojo. Catálogo propio: https://www.bolsasmortuoriasibarra.com.ar/",
     "",
     "## Páginas principales",
     `- [Inicio](${U("/")}): presentación de la empresa, ofertas, kits y preguntas frecuentes`,
