@@ -198,6 +198,10 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
         <div className="ad-me">
           <b>Administrador</b>
           <small>{email}</small>
+          <button className="ad-logout" onClick={async () => {
+            const { error } = await sb.auth.registerPasskey();
+            ok(error ? "No se pudo registrar la llave: " + error.message : "Llave de acceso registrada. La próxima entrá con Face ID / Touch ID.");
+          }}>🔑 Registrar llave de acceso</button>
           <button className="ad-logout" onClick={salir}>Cerrar sesión</button>
         </div>
       </aside>

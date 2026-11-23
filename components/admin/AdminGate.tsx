@@ -44,6 +44,12 @@ export default function AdminGate({ children }: { children: (s: AdminSession) =>
     }
   }
 
+  async function conLlave() {
+    setMsg("");
+    const { error } = await sb.auth.signInWithPasskey();
+    if (error) setMsg(/cancel|abort|NotAllowed/i.test(error.message) ? "Cancelaste el ingreso con llave." : "No se pudo entrar con la llave. Si todavía no la registraste, entrá con tu contraseña y registrala desde el panel.");
+  }
+
   const salir = () => { sb.auth.signOut(); };
 
   if (cargando) return <div className="ad-login"><p>Cargando…</p></div>;
@@ -61,7 +67,11 @@ export default function AdminGate({ children }: { children: (s: AdminSession) =>
           </>
         ) : (
           <>
-            <label>Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
+            {modo === "entrar" && (<>
+              <button type="button" className="ad-btn" onClick={conLlave}>🔑 Entrar con llave de acceso</button>
+              <p className="ad-login-sep">o con email y contraseña</p>
+            </>)}
+            <label>Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="username webauthn" /></label>
             {modo !== "olvide" && <label>Contraseña<input type="password" required value={pass} onChange={(e) => setPass(e.target.value)} autoComplete={modo === "crear" ? "new-password" : "current-password"} /></label>}
             <button className="ad-btn" type="submit">{modo === "entrar" ? "Entrar" : modo === "crear" ? "Crear mi contraseña" : "Enviarme el mail"}</button>
             {msg && <p className="ad-login-msg">{msg}</p>}

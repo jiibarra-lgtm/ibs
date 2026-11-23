@@ -1141,3 +1141,4 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .ad-login-err { color: #f87171; font-size: .9rem; margin: 0; }
 .ad-login-links { display: grid; gap: 6px; }
 .ad-login-links button { background: none; border: 0; color: #8b9ab3; text-decoration: underline; font-size: .82rem; cursor: pointer; text-align: left; padding: 0; }
+.ad-login-sep { text-align: center; font-size: .8rem; color: #8b9ab3; margin: 2px 0; }
