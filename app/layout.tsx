@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: metaDesc,
     images: [{ url: "/img/marca/planta.webp", width: 1400, height: 1050, alt: "Planta y flota de reparto de Ibarra Insumos" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/img/marca/planta.webp"] },
   icons: { icon: "/img/marca/favicon.png", apple: "/img/marca/icon-512.png" },
   other: { "geo.region": "AR-C", "geo.placename": "Buenos Aires, Argentina" },
 };
@@ -49,7 +49,7 @@ const orgLd = {
   name: site.name,
   url: site.url,
   logo: `${site.url}/img/marca/icon-512.png`,
-  image: [`${site.url}/img/marca/planta.webp`, `${site.url}/img/marca/deposito.webp`],
+  image: `${site.url}/img/marca/planta.webp`,
   "@id": `${site.url}/#empresa`,
   description: site.description,
   telephone: site.phoneE164,
@@ -68,6 +68,7 @@ const orgLd = {
 
 const webLd = {
   "@context": "https://schema.org", "@type": "WebSite", "@id": `${site.url}/#web`, name: site.name, url: site.url, inLanguage: "es-AR",
+  image: `${site.url}/img/marca/planta.webp`,
   publisher: { "@id": `${site.url}/#empresa` },
 };
 
