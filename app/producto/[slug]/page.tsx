@@ -35,7 +35,14 @@ export default async function ProductoPage({ params }: Props) {
   const comp = (complementos[p.slug] ?? []).map((s) => todos.find((t) => t.slug === s)).filter((x): x is NonNullable<typeof x> => !!x);
   const guiasRel = (await getGuias()).filter((g) => g.productos.includes(p.slug) || g.categoria.toLowerCase() === (c?.nombre ?? "").toLowerCase()).slice(0, 3);
   const otros = relacionados.filter((r) => r.slug !== p.slug && !comp.some((c) => c.slug === r.slug)).slice(0, 4);
-  const ld = {
+  // Sin precio publicado no declaramos "Product" (Google lo marca inválido sin offers/review/rating): usamos ItemPage.
+  const ld = typeof p.precio !== "number" ? {
+    "@context": "https://schema.org", "@type": "ItemPage",
+    name: p.nombre, description: p.descripcion, url: `${site.url}/producto/${p.slug}`, inLanguage: "es-AR",
+    primaryImageOfPage: absUrl(p.imagenes[0]), image: p.imagenes.map(absUrl),
+    isPartOf: { "@type": "WebSite", url: site.url, name: site.name },
+    publisher: { "@id": `${site.url}/#empresa` },
+  } : {
     "@context": "https://schema.org", "@type": "Product",
     name: p.nombre, description: p.descripcion, category: c?.nombre,
     image: p.imagenes.map(absUrl),
