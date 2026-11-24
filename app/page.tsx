@@ -39,7 +39,10 @@ export default async function Home() {
 
       {/* PORTADA: planta y flota propia */}
       <section className="hf">
-        <video className="hf-bg" src="/video/planta.mp4" poster="/img/marca/planta.webp" autoPlay muted loop playsInline preload="auto" aria-label="Vista aérea de la planta de Ibarra Insumos en Parque Avellaneda con la flota de reparto propia" />
+        <video className="hf-bg" poster="/img/marca/planta.webp" autoPlay muted loop playsInline preload="auto" aria-label="Vista aérea de la planta de Ibarra Insumos en Parque Avellaneda con la flota de reparto propia">
+          <source src="/video/planta-movil.mp4" type="video/mp4" media="(max-width: 760px)" />
+          <source src="/video/planta-hd.mp4" type="video/mp4" />
+        </video>
         <div className="hf-shade" aria-hidden="true" />
         <span className="hf-slash hf-slash--l" aria-hidden="true" /><span className="hf-slash hf-slash--r" aria-hidden="true" />
         <div className="hf-stk hf-stk--l" aria-hidden="true"><span>Directo</span><span>de fábrica</span></div>
