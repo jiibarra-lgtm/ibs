@@ -64,7 +64,8 @@ export default async function Page() {
             ))}
           </div>
           <div className="fab-gallery reveal">
-            <figure><img src="/img/marca/planta.webp" alt="Frente de la planta de Ibarra Insumos con la flota de reparto" loading="lazy" /><figcaption>La planta</figcaption></figure>
+            <figure className="fab-wide"><img src="/img/marca/planta-interior.webp" srcSet="/img/marca/planta-interior-1024.webp 1024w, /img/marca/planta-interior.webp 2048w" sizes="(max-width: 760px) 100vw, 1100px" alt="Interior de la planta de Ibarra Insumos: líneas de producción de papel, stock y camioneta de reparto" loading="lazy" width={2048} height={1144} /><figcaption>La planta por dentro</figcaption></figure>
+            <figure><img src="/img/marca/planta.webp" alt="Frente de la planta de Ibarra Insumos con la flota de reparto" loading="lazy" /><figcaption>El frente de la planta</figcaption></figure>
             <figure><img src="/img/marca/camioneta.webp" alt="Camioneta de reparto propio de Ibarra Insumos" loading="lazy" /><figcaption>Reparto propio</figcaption></figure>
           </div>
         </div>

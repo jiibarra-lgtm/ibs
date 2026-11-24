@@ -435,7 +435,7 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
                           <Field label="Título"><input value={b.titulo} onChange={(e) => set({ titulo: e.target.value })} /></Field>
                           <Field label="Estilo"><select value={b.tema} onChange={(e) => set({ tema: e.target.value })}><option value="teal">Verde</option><option value="gold">Dorado</option><option value="dark">Oscuro</option></select></Field>
                           <Field label="Bajada"><textarea rows={2} value={b.bajada} onChange={(e) => set({ bajada: e.target.value })} /></Field>
-                          <Field label="Imagen"><select value={b.imagen} onChange={(e) => set({ imagen: e.target.value })}>{["/img/marca/planta.webp", "/img/marca/camioneta.webp", ...productos.map((p) => p.imagenes[0])].map((src) => <option key={src} value={src}>{src.split("/").pop()}</option>)}</select></Field>
+                          <Field label="Imagen"><select value={b.imagen} onChange={(e) => set({ imagen: e.target.value })}>{["/img/marca/planta.webp", "/img/marca/planta-interior.webp", "/img/marca/camioneta.webp", ...productos.map((p) => p.imagenes[0])].map((src) => <option key={src} value={src}>{src.split("/").pop()}</option>)}</select></Field>
                           <Field label="Botón principal"><input value={b.cta} onChange={(e) => set({ cta: e.target.value })} /></Field>
                           <Field label="Link botón principal"><input value={b.ctaHref} onChange={(e) => set({ ctaHref: e.target.value })} /></Field>
                           <Field label="Botón secundario"><input value={b.cta2} onChange={(e) => set({ cta2: e.target.value })} /></Field>
@@ -692,7 +692,7 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
                 <button className="ad-btn" disabled title="Disponible al conectar el almacenamiento"><Icon n="plus" size={16} /> Subir imágenes</button>
               </PageHead>
               <div className="ad-media">
-                {["/img/marca/planta.webp", "/img/marca/camioneta.webp", ...productos.flatMap((p) => p.imagenes)].map((src) => (
+                {["/img/marca/planta.webp", "/img/marca/planta-interior.webp", "/img/marca/camioneta.webp", ...productos.flatMap((p) => p.imagenes)].map((src) => (
                   <figure key={src}><img src={src} alt="" loading="lazy" /><figcaption>{src.split("/").pop()}</figcaption></figure>
                 ))}
               </div>

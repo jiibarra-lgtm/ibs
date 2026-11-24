@@ -1406,3 +1406,5 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
   .ev .hero-ctas { flex-direction: column; }
   .ev .hero-ctas .btn { width: 100%; justify-content: center; }
 }
+.fab-gallery .fab-wide { grid-column: 1 / -1; }
+.fab-gallery .fab-wide img { aspect-ratio: 16/9; }
