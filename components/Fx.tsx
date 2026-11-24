@@ -135,13 +135,13 @@ export function PackSelector({ slug, nombre, imagen, precio, extra }: { slug: st
               {x.tag && <span className="pk-tag">{x.tag}</span>}
               <span className="pk-img" data-n={pilas}>{Array.from({ length: pilas }).map((_, j) => <img key={j} src={imagen} alt="" aria-hidden="true" />)}</span>
               <span className="pk-txt">
-                <b>Llevando {x.min} {x.min === 1 ? "unidad" : "unidades"}{o > 0 && <em>−{o}% OFF{o >= 10 ? " 🔥" : ""}</em>}</b>
+                <b>Llevando {x.min}{o > 0 && <em>−{o}% OFF{o >= 10 ? " 🔥" : ""}</em>}</b>
                 <small>{o > 0 ? `Ahorrás el ${o}% en cada unidad` : "Precio de lista"}</small>
               </span>
               <span className="pk-price">
                 {typeof precio === "number"
                   ? <>{fmt(precio * (1 - o / 100))}<small>c/u</small>{o > 0 && <s>{fmt(precio)}</s>}</>
-                  : <>{o > 0 ? `−${o}%` : "—"}<small>{o > 0 ? "en tu cotización" : ""}</small></>}
+                  : <>{o > 0 ? `−${o}%` : "Lista"}<small>{o > 0 ? "en tu cotización" : ""}</small></>}
               </span>
             </button>
           );
@@ -155,7 +155,7 @@ export function PackSelector({ slug, nombre, imagen, precio, extra }: { slug: st
         </label>
       )}
       <button ref={btnRef} className="btn btn-primary btn-block btn-lg btn-shine pk-cta" onClick={agregar}>
-        Agregar {e.min} {e.min === 1 ? "unidad" : "unidades"}{conExtra && extra ? " + complemento" : ""}{off ? ` · −${off}%` : ""}
+        Agregar {e.min} {e.min === 1 ? "unidad" : "u."}{conExtra && extra ? " + complemento" : ""}{off ? ` · −${off}%` : ""}
       </button>
       <div className={`sticky-buy ${sticky ? "show" : ""}`} aria-hidden={!sticky}>
         <img src={imagen} alt="" />
