@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, waLink } from "@/lib/site";
 import { getCategorias, getDestacados, getProductos } from "@/lib/catalog";
 import { faqs, glosario, ventajas } from "@/lib/content";
-import { animaciones, banners, cuponesVisibles, escalas, kits, marcas, ofertaDelMes, ofertaPara, secciones, sellos } from "@/lib/promos";
+import { animaciones, banners, envioGratis, maxEscala, cuponesVisibles, escalas, kits, marcas, ofertaDelMes, ofertaPara, secciones, sellos } from "@/lib/promos";
 import ProductCard from "@/components/ProductCard";
 import KitCard, { type KitView } from "@/components/KitCard";
 import { getKitViews } from "@/lib/kits";
@@ -37,7 +37,29 @@ export default async function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      <HeroSlider banners={banners} flotantes={heroImgs} segundos={animaciones.bannerAutoplaySeg} />
+      {/* PORTADA: planta y flota propia */}
+      <section className="hf">
+        <img className="hf-bg" src="/img/marca/planta.webp" srcSet="/img/marca/planta-800.webp 800w, /img/marca/planta.webp 1400w" sizes="100vw" alt="Planta de Ibarra Insumos en Parque Avellaneda con la flota de reparto propia" fetchPriority="high" />
+        <div className="hf-shade" aria-hidden="true" />
+        <span className="hf-slash hf-slash--l" aria-hidden="true" /><span className="hf-slash hf-slash--r" aria-hidden="true" />
+        <div className="hf-stk hf-stk--l" aria-hidden="true"><span>Directo</span><span>de fábrica</span></div>
+        <div className="hf-stk hf-stk--r" aria-hidden="true"><span>Descuentos</span><span>exclusivos</span></div>
+        <div className="hf-copy wrap">
+          <p className="hf-eyebrow">Fabricantes y distribuidores · Desde {site.founded}</p>
+          <h1>Fabricamos y distribuimos <em>limpieza institucional</em></h1>
+          <ul className="hf-chips">
+            {maxEscala > 0 && <li>Hasta −{maxEscala}% por cantidad</li>}
+            {envioGratis.activo && <li>🚚 Envío gratis desde ${envioGratis.minimo.toLocaleString("es-AR")}</li>}
+            <li>Reparto propio en 24–48 hs</li>
+          </ul>
+          <div className="hero-ctas">
+            <Link className="btn btn-gold btn-lg btn-shine" href="/productos">Ver catálogo</Link>
+            <Link className="btn btn-glass btn-lg" href="/#ofertas">🔥 Descuentos del mes</Link>
+          </div>
+        </div>
+      </section>
+
+      <HeroSlider banners={banners} flotantes={heroImgs} segundos={animaciones.bannerAutoplaySeg} sinH1 />
 
       {on("sellos") && sellos.length > 0 && (
         <div className="wrap">
@@ -197,27 +219,32 @@ export default async function Home() {
 
       <Marquee items={garantias} />
 
-      {/* CÓMO COMPRAR */}
+      {/* CÓMO COMPRAR: de principio a fin */}
       {on("comoComprar") && (
       <section className="section section--white">
         <div className="wrap">
           <div className="head reveal" style={{ textAlign: "center" }}>
-            <p className="eyebrow">Así de simple</p>
-            <h2 className="section-title">Cómo comprar</h2>
+            <p className="eyebrow">Comprá directo de fábrica</p>
+            <h2 className="section-title pf-title">Con vos, <em>de principio a fin.</em></h2>
+            <p className="pf-sub">Desde que armás tu lista hasta después de recibirla, estamos para ayudarte.</p>
           </div>
-          <div className="steps">
+          <ol className="pf">
             {[
-              { n: 1, ic: "🛒", t: "Armá tu lista", d: "Sumá productos o combos. Los descuentos por cantidad se aplican solos." },
-              { n: 2, ic: "💬", t: "Enviala por WhatsApp", d: "Te confirmamos precios, stock y fecha de entrega en el día." },
-              { n: 3, ic: "🚚", t: "Recibí en 24–48 hs", d: "Reparto propio en CABA y GBA, con factura A o B." },
+              { ic: <path d="M6 7h12l-1 13H7L6 7Zm3 0a3 3 0 0 1 6 0m-6 6 2 2 4-4" />, t: "Armás tu pedido", d: "Sumá productos o kits. Los descuentos por cantidad se aplican solos." },
+              { ic: <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 0v18m8-13.5-8 4.5-8-4.5" />, t: "Lo preparamos", d: "Lo armamos en nuestra planta y depósito de Parque Avellaneda." },
+              { ic: <path d="M3 7h11v9H3V7Zm11 3h4l3 3v3h-7v-6ZM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />, t: "Va hacia vos", d: "Reparto propio en CABA y GBA, en 24–48 hs hábiles." },
+              { ic: <path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H5a1 1 0 0 1-1-1v-4Zm16 0h-3v5h2a1 1 0 0 0 1-1v-4Zm-3 5c0 1-2 2-5 2" />, t: "Seguimos cerca", d: "Te ayudamos con el uso, los cambios y las devoluciones." },
             ].map((s, i) => (
-              <div key={s.n} className="step reveal" style={{ transitionDelay: `${i * 120}ms` }}>
-                <span className="step-n">{s.n}</span>
-                <span className="step-ic">{s.ic}</span>
+              <li key={s.t} className="pf-step reveal" style={{ transitionDelay: `${i * 110}ms` }}>
+                <span className="pf-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{s.ic}</svg><b>{String(i + 1).padStart(2, "0")}</b></span>
                 <h3>{s.t}</h3>
                 <p>{s.d}</p>
-              </div>
+              </li>
             ))}
+          </ol>
+          <div className="pf-help reveal">
+            <span>¿Necesitás una mano?</span>
+            <a className="btn btn-wa btn-shine" href={waLink("Hola! Necesito ayuda con mi pedido.")} target="_blank" rel="noopener">💬 Hablá con Ibarra →</a>
           </div>
         </div>
       </section>

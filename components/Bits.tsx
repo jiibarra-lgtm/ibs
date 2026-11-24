@@ -57,7 +57,7 @@ function Gallery({ nombre, imagenes }: { nombre: string; imagenes: string[] }) {
   );
 }
 
-export function ProductView(props: { slug: string; nombre: string; imagenes: string[]; precio?: number; children: React.ReactNode }) {
+export function ProductView(props: { slug: string; nombre: string; imagenes: string[]; precio?: number; extra?: { slug: string; nombre: string; imagen: string }; children: React.ReactNode }) {
   const { toast } = useCart();
   async function share() {
     const url = window.location.href;
@@ -69,7 +69,7 @@ export function ProductView(props: { slug: string; nombre: string; imagenes: str
       <Gallery nombre={props.nombre} imagenes={props.imagenes} />
       <div>
         {props.children}
-        <PackSelector slug={props.slug} nombre={props.nombre} imagen={props.imagenes[0]} precio={props.precio} />
+        <PackSelector slug={props.slug} nombre={props.nombre} imagen={props.imagenes[0]} precio={props.precio} extra={props.extra} />
         <div className="pdp-actions">
           <a className="btn btn-wa" href={waLink(`Hola! Quiero consultar por ${props.nombre}`)} target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
           <button className="btn btn-sm" style={{ color: "var(--teal)" }} onClick={share}>📤 Compartir</button>

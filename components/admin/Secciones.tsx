@@ -3,6 +3,9 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Card, PageHead } from "@/components/admin/ui";
+import { FUENTES, TEMAS, type Tema } from "@/lib/temas";
+import type { Apariencia } from "@/lib/promos";
+
 
 type Evento = { tipo: string; valor: string | null; ruta: string | null; ref: string | null; dispositivo: string | null; sesion: string | null; created_at: string };
 type Item = { slug: string; nombre: string; cantidad: number };
@@ -250,6 +253,117 @@ export function Usuarios({ sb, email, ok }: { sb: SupabaseClient; email: string;
           </ul>
         )}
       </Card>
+    </>
+  );
+}
+
+/* ───────── APARIENCIA: plantillas ───────── */
+
+const fuenteCss: Record<string, string> = { Montserrat: "var(--f-montserrat)", Poppins: "var(--f-poppins)", Inter: "var(--f-inter)", Outfit: "var(--f-outfit)", "Plus Jakarta Sans": "var(--f-jakarta)", "DM Sans": "var(--f-dmsans)" };
+const igual = (a: Apariencia, b: Apariencia) => a.colorPrincipal.toLowerCase() === b.colorPrincipal.toLowerCase() && a.colorAcento.toLowerCase() === b.colorAcento.toLowerCase() && a.colorFondo.toLowerCase() === b.colorFondo.toLowerCase() && a.redondeo === b.redondeo && a.tipografiaTitulos === b.tipografiaTitulos;
+
+function Mini({ a, img, nombre, grande = false }: { a: Apariencia; img?: string; nombre?: string; grande?: boolean }) {
+  const f = fuenteCss[a.tipografiaTitulos] ?? "inherit";
+  return (
+    <div className={`tp-mini ${grande ? "tp-mini--xl" : ""}`} style={{ background: a.colorFondo, borderRadius: a.redondeo / 2 + 6 }}>
+      <div className="tp-bar" style={{ background: a.colorAcento }}>Envío gratis desde $150.000</div>
+      <div className="tp-hero" style={{ backgroundImage: `linear-gradient(180deg, transparent 30%, ${a.colorPrincipal}ee), url(/img/marca/planta-800.webp)` }}>
+        <span className="tp-stk" style={{ fontFamily: f }}><i style={{ background: a.colorPrincipal }}>DESCUENTOS</i><i style={{ color: a.colorPrincipal, borderColor: a.colorAcento }}>EXCLUSIVOS</i></span>
+        <b style={{ fontFamily: f }}>Fabricamos limpieza institucional</b>
+        <em style={{ background: a.colorAcento, borderRadius: a.redondeo }}>Ver catálogo</em>
+      </div>
+      <div className="tp-row">
+        {[0, 1].map((k) => (
+          <div key={k} className="tp-card" style={{ borderRadius: a.redondeo / 2 + 4 }}>
+            {img && <img src={img} alt="" />}
+            <b style={{ color: a.colorPrincipal, fontFamily: f }}>{k === 0 ? nombre : "Llevando 12 · −10%"}</b>
+            <em style={{ background: a.colorPrincipal, borderRadius: a.redondeo }}>+ Cotizar</em>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function Plantillas({ sb, ok, img, nombre, inicial }: { sb: SupabaseClient; ok: (m: string) => void; img?: string; nombre?: string; inicial: Apariencia }) {
+  const [enUso, setEnUso] = useState<Apariencia>(inicial);
+  const [edit, setEdit] = useState<Apariencia>(inicial);
+  const [guardando, setGuardando] = useState(false);
+
+  useEffect(() => {
+    sb.from("ajustes").select("valor").eq("clave", "apariencia").maybeSingle().then(({ data }) => {
+      if (data?.valor) { const v = { ...inicial, ...(data.valor as Apariencia) }; setEnUso(v); setEdit(v); }
+    });
+  }, [sb, inicial]);
+
+  async function publicar(a: Apariencia, nombreTema?: string) {
+    setGuardando(true);
+    const { error } = await sb.from("ajustes").upsert({ clave: "apariencia", valor: a, updated_at: new Date().toISOString() });
+    if (error) { ok("No se pudo publicar: " + error.message); setGuardando(false); return; }
+    const { data } = await sb.auth.getSession();
+    await fetch("/api/revalidar", { method: "POST", headers: { Authorization: `Bearer ${data.session?.access_token ?? ""}` } }).catch(() => {});
+    setEnUso(a); setEdit(a); setGuardando(false);
+    ok(`${nombreTema ? `“${nombreTema}”` : "Diseño"} publicado. Recargá la web para verlo.`);
+  }
+
+  const cambiado = !igual(edit, enUso);
+  const temaActual = TEMAS.find((t) => igual(t, enUso));
+
+  return (
+    <>
+      <PageHead title="Apariencia" desc="Elegí una plantilla y se aplica a toda la web en segundos. Podés volver a la clásica cuando quieras.">
+        <a className="ad-btn ad-btn--ghost" href="/" target="_blank" rel="noopener">Ver la web</a>
+      </PageHead>
+
+      <div className="tp-grid">
+        {TEMAS.map((t: Tema) => {
+          const usado = igual(t, enUso);
+          return (
+            <div key={t.id} className={`tp ${usado ? "on" : ""} ${igual(t, edit) && !usado ? "sel" : ""}`}>
+              <button className="tp-prev" onClick={() => setEdit({ colorPrincipal: t.colorPrincipal, colorAcento: t.colorAcento, colorFondo: t.colorFondo, redondeo: t.redondeo, tipografiaTitulos: t.tipografiaTitulos })} aria-label={`Probar ${t.nombre}`}>
+                <Mini a={t} img={img} nombre={nombre} />
+              </button>
+              <div className="tp-info">
+                <div><b>{t.nombre}</b>{usado && <span className="tp-badge">En uso</span>}</div>
+                <p>{t.para}</p>
+                <div className="tp-dots">{[t.colorPrincipal, t.colorAcento, t.colorFondo].map((c) => <i key={c} style={{ background: c }} />)}<small>{t.tipografiaTitulos}</small></div>
+                <button className="ad-btn ad-btn--sm" disabled={usado || guardando} onClick={() => publicar({ colorPrincipal: t.colorPrincipal, colorAcento: t.colorAcento, colorFondo: t.colorFondo, redondeo: t.redondeo, tipografiaTitulos: t.tipografiaTitulos }, t.nombre)}>
+                  {usado ? "Aplicada" : "Usar esta plantilla"}
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="ad-split">
+        <Card title="Personalizar" desc={temaActual ? `Partiendo de “${temaActual.nombre}”. Ajustá lo que quieras y publicá.` : "Diseño personalizado."}>
+          {([["colorPrincipal", "Color principal", "Header, botones, secciones oscuras"], ["colorAcento", "Color de acento", "Etiquetas, barra superior, botón catálogo"], ["colorFondo", "Color de fondo", "Fondo general"]] as const).map(([k, l, d]) => (
+            <div key={k} className="tp-field">
+              <div><b>{l}</b><small>{d}</small></div>
+              <label className="ad-color"><input type="color" value={edit[k]} onChange={(e) => setEdit({ ...edit, [k]: e.target.value })} /><code>{edit[k]}</code></label>
+            </div>
+          ))}
+          <div className="tp-field">
+            <div><b>Redondeo</b><small>Esquinas de tarjetas y botones</small></div>
+            <div className="ad-range"><input type="range" min={0} max={28} value={edit.redondeo} onChange={(e) => setEdit({ ...edit, redondeo: +e.target.value })} /><b>{edit.redondeo}px</b></div>
+          </div>
+          <div className="tp-field">
+            <div><b>Tipografía de títulos</b></div>
+            <select className="ad-select" value={edit.tipografiaTitulos} onChange={(e) => setEdit({ ...edit, tipografiaTitulos: e.target.value })}>
+              {FUENTES.map((f) => <option key={f}>{f}</option>)}
+            </select>
+          </div>
+          <div className="ad-chips">
+            <button className="ad-btn" disabled={!cambiado || guardando} onClick={() => publicar(edit)}>{guardando ? "Publicando…" : "Publicar en la web"}</button>
+            {cambiado && <button className="ad-btn ad-btn--ghost" onClick={() => setEdit(enUso)}>Descartar</button>}
+          </div>
+        </Card>
+        <div className="ad-sticky">
+          <p className="ad-prev-label">{cambiado ? "Vista previa (sin publicar)" : "Así se ve ahora"}</p>
+          <Mini a={edit} img={img} nombre={nombre} grande />
+        </div>
+      </div>
     </>
   );
 }

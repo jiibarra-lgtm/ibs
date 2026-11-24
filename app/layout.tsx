@@ -8,13 +8,14 @@ import { WaFloat } from "@/components/Bits";
 import { RevealObserver } from "@/components/Fx";
 import { PromoPopup, SmoothScroll } from "@/components/Shop";
 import { getProductos } from "@/lib/catalog";
-import { animaciones, apariencia, eventos, ofertaDelMes, ofertaPara, popup, shade } from "@/lib/promos";
+import { animaciones, eventos, ofertaDelMes, ofertaPara, popup, shade } from "@/lib/promos";
 import { EventStrip } from "@/components/Events";
 import Measurement from "@/components/seo/Measurement";
 import ConsentBanner from "@/components/seo/ConsentBanner";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { fontClasses, headVar } from "./fonts";
+import { fontClasses, fontMap } from "./fonts";
+import { getApariencia } from "@/lib/ajustes";
 import { sameAs } from "@/lib/empresa";
 
 const metaDesc = "Fabricantes y distribuidores mayoristas de productos de limpieza e higiene institucional en CABA y GBA. Precio de fábrica y entrega en 24–48 hs.";
@@ -83,7 +84,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     ...e,
     prods: e.productos.map((s) => productos.find((p) => p.slug === s)).filter((p): p is NonNullable<typeof p> => !!p).map((p) => ({ slug: p.slug, nombre: p.nombre, imagen: p.imagenes[0] })),
   }));
-  const a = apariencia;
+  const a = await getApariencia();
+  const headVar = fontMap[a.tipografiaTitulos] ?? "--f-montserrat";
   const vars = `:root{--teal:${a.colorPrincipal};--teal-2:${shade(a.colorPrincipal, 0.18)};--teal-3:${shade(a.colorPrincipal, 0.88)};--gold:${a.colorAcento};--gold-2:${shade(a.colorAcento, 0.3)};--cream:${a.colorFondo};--radius:${a.redondeo}px;--font-head:var(${headVar}),system-ui,sans-serif;--font-body:var(--f-lato),system-ui,sans-serif}`;
   return (
     <html lang="es-AR" className={fontClasses}>
@@ -98,7 +100,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main>{children}</main>
           <Footer />
           <WaFloat />
-          <PromoPopup cfg={popup} ofertas={ofertas} eventos={eventosView} />
+          <PromoPopup cfg={popup} ofertas={ofertas} eventos={eventosView} destacadosPop={productos.filter((p) => p.destacado).slice(0, 5).map((p) => ({ slug: p.slug, nombre: p.nombre, imagen: p.imagenes[0] }))} />
           <SmoothScroll enabled={animaciones.activas && animaciones.scrollSuave} />
           <RevealObserver />
         </CartProvider>

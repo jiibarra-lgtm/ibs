@@ -99,10 +99,11 @@ export function Countdown({ hasta }: { hasta: string }) {
   );
 }
 
-/** Selector de packs en la ficha de producto */
-export function PackSelector({ slug, nombre, imagen, precio }: { slug: string; nombre: string; imagen: string; precio?: number }) {
+/** Selector de packs en la ficha de producto: "Llevando X" con descuento por cantidad y complemento opcional */
+export function PackSelector({ slug, nombre, imagen, precio, extra }: { slug: string; nombre: string; imagen: string; precio?: number; extra?: { slug: string; nombre: string; imagen: string } }) {
   const { add, setOpen } = useCart();
-  const [sel, setSel] = useState(2);
+  const [sel, setSel] = useState(Math.min(2, escalas.length - 1));
+  const [conExtra, setConExtra] = useState(false);
   const mes = ofertaPara(slug);
   const e = escalas[sel];
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -117,41 +118,51 @@ export function PackSelector({ slug, nombre, imagen, precio }: { slug: string; n
   const agregar = () => {
     flyToCart(document.querySelector<HTMLImageElement>(".gallery-main img"));
     add({ slug, nombre, imagen, precio }, e.min);
+    if (conExtra && extra) add({ slug: extra.slug, nombre: extra.nombre, imagen: extra.imagen }, 1);
     setTimeout(() => setOpen(true), 650);
   };
   const off = Math.max(e.off, mes);
+  const fmt = (n: number) => `$${Math.round(n).toLocaleString("es-AR")}`;
   return (
     <div className="packs">
-      <div className="packs-head">
-        <b>Elegí tu cantidad</b>
-        <span>{mes ? `🔥 Oferta del mes −${mes}%` : "Más llevás, menos pagás"}</span>
-      </div>
-      <div className="packs-grid" role="radiogroup" aria-label="Cantidad">
+      <p className="packs-rule"><span>{mes ? `🔥 Oferta del mes −${mes}%` : "Más llevás, menos pagás"}</span></p>
+      <div className="packs-list" role="radiogroup" aria-label="Cantidad">
         {escalas.map((x, i) => {
           const o = Math.max(x.off, mes);
+          const pilas = Math.min(3, i + 1);
           return (
-            <button key={x.label} role="radio" aria-checked={sel === i} className={`pack ${sel === i ? "on" : ""}`} onClick={() => setSel(i)}>
-              {x.tag && <span className="pack-tag">{x.tag}</span>}
-              <span className="pack-q">{x.label}</span>
-              {o > 0 ? <span className="pack-off">−{o}%</span> : <span className="pack-off pack-off--none">Precio lista</span>}
-              {typeof precio === "number" && (
-                <span className="pack-price">
-                  {o > 0 && <s>${(precio).toLocaleString("es-AR")}</s>} ${Math.round(precio * (1 - o / 100)).toLocaleString("es-AR")} c/u
-                </span>
-              )}
+            <button key={x.label} role="radio" aria-checked={sel === i} className={`pk ${sel === i ? "on" : ""}`} onClick={() => setSel(i)}>
+              {x.tag && <span className="pk-tag">{x.tag}</span>}
+              <span className="pk-img" data-n={pilas}>{Array.from({ length: pilas }).map((_, j) => <img key={j} src={imagen} alt="" aria-hidden="true" />)}</span>
+              <span className="pk-txt">
+                <b>Llevando {x.min} {x.min === 1 ? "unidad" : "unidades"}{o > 0 && <em>−{o}% OFF{o >= 10 ? " 🔥" : ""}</em>}</b>
+                <small>{o > 0 ? `Ahorrás el ${o}% en cada unidad` : "Precio de lista"}</small>
+              </span>
+              <span className="pk-price">
+                {typeof precio === "number"
+                  ? <>{fmt(precio * (1 - o / 100))}<small>c/u</small>{o > 0 && <s>{fmt(precio)}</s>}</>
+                  : <>{o > 0 ? `−${o}%` : "—"}<small>{o > 0 ? "en tu cotización" : ""}</small></>}
+              </span>
             </button>
           );
         })}
       </div>
-      <button ref={btnRef} className="btn btn-primary btn-block btn-lg btn-shine" onClick={agregar}>
-        Agregar {e.min} {e.min === 1 ? "unidad" : "unidades"}{off ? ` · −${off}%` : ""}
+      {extra && (
+        <label className={`pk-extra ${conExtra ? "on" : ""}`}>
+          <input type="checkbox" checked={conExtra} onChange={(ev) => setConExtra(ev.target.checked)} />
+          <img src={extra.imagen} alt="" />
+          <span><b>+ Sumá {extra.nombre}</b><small>Va perfecto con este producto</small></span>
+        </label>
+      )}
+      <button ref={btnRef} className="btn btn-primary btn-block btn-lg btn-shine pk-cta" onClick={agregar}>
+        Agregar {e.min} {e.min === 1 ? "unidad" : "unidades"}{conExtra && extra ? " + complemento" : ""}{off ? ` · −${off}%` : ""}
       </button>
       <div className={`sticky-buy ${sticky ? "show" : ""}`} aria-hidden={!sticky}>
         <img src={imagen} alt="" />
-        <div><b>{nombre}</b><span>{e.label}{off ? ` · −${off}%` : ""}</span></div>
+        <div><b>{nombre}</b><span>Llevando {e.min}{off ? ` · −${off}%` : ""}</span></div>
         <button className="btn btn-primary btn-sm btn-shine" onClick={agregar} tabIndex={sticky ? 0 : -1}>Agregar</button>
       </div>
-      <p className="note" style={{ textAlign: "center" }}>El descuento se aplica solo en tu cotización. También podés cambiar la cantidad después.</p>
+      <p className="note" style={{ textAlign: "center" }}>El descuento se aplica solo en tu cotización. Podés cambiar la cantidad después.</p>
     </div>
   );
 }

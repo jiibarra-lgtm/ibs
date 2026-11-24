@@ -10,6 +10,6 @@ const jakarta = localFont({ src: "./fonts/plus-jakarta-sans-latin-wght-normal.wo
 const dmsans = localFont({ src: "./fonts/dm-sans-latin-wght-normal.woff2", weight: "100 1000", variable: "--f-dmsans", display: "swap", preload: false });
 const poppins = localFont({ src: [{ path: "./fonts/poppins-latin-600-normal.woff2", weight: "600", style: "normal" }, { path: "./fonts/poppins-latin-700-normal.woff2", weight: "700", style: "normal" }, { path: "./fonts/poppins-latin-800-normal.woff2", weight: "800", style: "normal" }], variable: "--f-poppins", display: "swap", preload: false });
 
-const map: Record<string, string> = { Montserrat: "--f-montserrat", Inter: "--f-inter", Outfit: "--f-outfit", "Plus Jakarta Sans": "--f-jakarta", "DM Sans": "--f-dmsans", Poppins: "--f-poppins" };
-export const headVar = map[apariencia.tipografiaTitulos] ?? "--f-montserrat";
+export const fontMap: Record<string, string> = { Montserrat: "--f-montserrat", Inter: "--f-inter", Outfit: "--f-outfit", "Plus Jakarta Sans": "--f-jakarta", "DM Sans": "--f-dmsans", Poppins: "--f-poppins" };
+export const headVar = fontMap[apariencia.tipografiaTitulos] ?? "--f-montserrat";
 export const fontClasses = [lato, montserrat, inter, outfit, jakarta, dmsans, poppins].map((f) => f.variable).join(" ");

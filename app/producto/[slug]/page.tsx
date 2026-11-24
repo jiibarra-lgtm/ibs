@@ -67,7 +67,7 @@ export default async function ProductoPage({ params }: Props) {
           <nav className="crumbs" style={{ color: "var(--muted)", marginBottom: 20 }} aria-label="Migas">
             <Link href="/">Inicio</Link> / <Link href="/productos">Productos</Link> / {c && <><Link href={`/productos/${c.slug}`}>{c.nombre}</Link> / </>}<span>{p.nombre}</span>
           </nav>
-          <ProductView slug={p.slug} nombre={p.nombre} imagenes={p.imagenes} precio={p.precio}>
+          <ProductView slug={p.slug} nombre={p.nombre} imagenes={p.imagenes} precio={p.precio} extra={comp[0] ? { slug: comp[0].slug, nombre: comp[0].nombre, imagen: comp[0].imagenes[0] } : undefined}>
             {p.badge && <span className="b b-gold" style={{ marginBottom: 8, display: "inline-block", marginRight: 6 }}>{p.badge}</span>}
             {p.fabricacionPropia && <span className="b b-fab" style={{ marginBottom: 8, display: "inline-block" }}>🏭 Fabricación propia</span>}
             <span className="card-cat" style={{ display: "block" }}>{c?.nombre}{p.subcategoria ? ` · ${p.subcategoria}` : ""}</span>

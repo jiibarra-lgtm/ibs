@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Analitica, Cotizaciones, Usuarios } from "@/components/admin/Secciones";
+import { Analitica, Cotizaciones, Plantillas, Usuarios } from "@/components/admin/Secciones";
 import AdminGate, { type AdminSession } from "./AdminGate";
 import { SB_BUCKET } from "@/lib/supabase";
 import type { Categoria, Producto } from "@/lib/catalog";
@@ -662,46 +662,7 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
           )}
 
           {/* ───────── APARIENCIA ───────── */}
-          {sec === "apariencia" && (
-            <>
-              <PageHead title="Apariencia" desc="Colores, bordes y tipografía de la tienda." />
-              <div className="ad-split">
-                <Card>
-                  {([["colorPrincipal", "Color principal", "Header, botones, secciones oscuras"], ["colorAcento", "Color de acento", "Dorado: etiquetas, botón catálogo, barra superior"], ["colorFondo", "Color de fondo", "Fondo general de la tienda"]] as const).map(([k, l, d]) => (
-                    <Row key={k} label={l} desc={d}>
-                      <div className="ad-color"><input type="color" value={t.apariencia[k]} onChange={(e) => upd("apariencia", { ...t.apariencia, [k]: e.target.value })} /><code>{t.apariencia[k]}</code></div>
-                    </Row>
-                  ))}
-                  <Row label="Redondeo de bordes" desc="Esquinas de tarjetas y cajas">
-                    <div className="ad-range"><input type="range" min={0} max={28} value={t.apariencia.redondeo} onChange={(e) => upd("apariencia", { ...t.apariencia, redondeo: +e.target.value })} /><b>{t.apariencia.redondeo}px</b></div>
-                  </Row>
-                  <Row label="Tipografía de títulos">
-                    <select className="ad-select" value={t.apariencia.tipografiaTitulos} onChange={(e) => upd("apariencia", { ...t.apariencia, tipografiaTitulos: e.target.value })}>
-                      {["Montserrat", "Poppins", "Inter", "Outfit", "Plus Jakarta Sans", "DM Sans"].map((f) => <option key={f}>{f}</option>)}
-                    </select>
-                  </Row>
-                  <button className="ad-link" onClick={() => upd("apariencia", { colorPrincipal: "#1a4a44", colorAcento: "#b08a3a", colorFondo: "#f6f2ea", redondeo: 14, tipografiaTitulos: "Montserrat" })}>Restaurar colores originales</button>
-                </Card>
-                <div className="ad-sticky">
-                  <p className="ad-prev-label">Vista previa</p>
-                  <div className="ad-theme" style={{ background: t.apariencia.colorFondo, borderRadius: t.apariencia.redondeo + 6 }}>
-                    <div className="ad-theme-bar" style={{ background: t.apariencia.colorAcento }}>🚚 Entrega en 24–48 hs</div>
-                    <div className="ad-theme-hero" style={{ background: t.apariencia.colorPrincipal }}>
-                      <small style={{ color: t.apariencia.colorAcento }}>DESDE 1985</small>
-                      <b style={{ fontFamily: t.apariencia.tipografiaTitulos }}>Especialistas en limpieza</b>
-                      <span style={{ background: t.apariencia.colorAcento, borderRadius: 999 }}>Ver catálogo</span>
-                    </div>
-                    <div className="ad-theme-card" style={{ borderRadius: t.apariencia.redondeo }}>
-                      <img src={productos[0]?.imagenes[0]} alt="" />
-                      <small style={{ color: t.apariencia.colorAcento }}>DISPENSERS</small>
-                      <b style={{ color: t.apariencia.colorPrincipal, fontFamily: t.apariencia.tipografiaTitulos }}>{productos[0]?.nombre}</b>
-                      <span style={{ background: t.apariencia.colorPrincipal, borderRadius: 999 }}>+ Cotizar</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
+          {sec === "apariencia" && <Plantillas sb={sb} ok={ok} img={productos[0]?.imagenes[0]} nombre={productos[0]?.nombre} inicial={t.apariencia} />}
 
           {/* ───────── TESTIMONIOS ───────── */}
           {sec === "testimonios" && (

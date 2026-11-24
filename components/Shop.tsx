@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { eventoActivo, type Banner, type PopupCfg } from "@/lib/promos";
+import { cupones as cuponesTodos, cuponesVisibles, eventoActivo, type Banner, type PopupCfg } from "@/lib/promos";
 import type { EventoView } from "./Events";
 import { useCart } from "./CartProvider";
 
@@ -73,7 +73,7 @@ export function SmoothScroll({ enabled }: { enabled: boolean }) {
 }
 
 /** Banner principal deslizable */
-export function HeroSlider({ banners, flotantes, segundos = 7 }: { banners: Banner[]; flotantes: string[]; segundos?: number }) {
+export function HeroSlider({ banners, flotantes, segundos = 7, sinH1 = false }: { banners: Banner[]; flotantes: string[]; segundos?: number; sinH1?: boolean }) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const touch = useRef<number | null>(null);
@@ -102,7 +102,7 @@ export function HeroSlider({ banners, flotantes, segundos = 7 }: { banners: Bann
             <div className="wrap slide-inner">
               <div className="slide-copy">
                 <p className="eyebrow">{b.etiqueta}</p>
-                {(() => { const H = k === 0 ? "h1" : "h2"; return (
+                {(() => { const H = k === 0 && !sinH1 ? "h1" : "h2"; return (
                   <H className="slide-title">
                     {antes}{b.destacado && b.titulo.includes(b.destacado) && <em>{b.destacado}</em>}{despues}
                   </H>
@@ -119,7 +119,7 @@ export function HeroSlider({ banners, flotantes, segundos = 7 }: { banners: Bann
               </div>
               <div className="slide-visual">
                 <div className={`slide-img ${b.imagen.includes("/productos/") ? "slide-img--prod" : ""}`}>
-                  <img src={b.imagen} srcSet={SRCSET[b.imagen]} sizes={SRCSET[b.imagen] ? "(max-width: 760px) 92vw, 560px" : undefined} alt={b.imagen.includes("/marca/") ? "Planta y depósito de Ibarra Insumos" : b.titulo} fetchPriority={k === 0 ? "high" : "low"} loading={k === 0 ? "eager" : "lazy"} />
+                  <img src={b.imagen} srcSet={SRCSET[b.imagen]} sizes={SRCSET[b.imagen] ? "(max-width: 760px) 92vw, 560px" : undefined} alt={b.imagen.includes("/marca/") ? "Planta y depósito de Ibarra Insumos" : b.titulo} fetchPriority={k === 0 && !sinH1 ? "high" : "low"} loading={k === 0 && !sinH1 ? "eager" : "lazy"} />
                 </div>
                 {k === 0 && flotantes.map((src, j) => <div key={src} className={`float-card fc-${j + 1}`}><img src={src} alt="" aria-hidden="true" /></div>)}
               </div>
@@ -147,7 +147,7 @@ export function HeroSlider({ banners, flotantes, segundos = 7 }: { banners: Bann
 }
 
 /** Popup de entrada: si hay un evento en curso con popup, muestra el del evento; si no, el general */
-export function PromoPopup({ cfg, ofertas, eventos }: { cfg: PopupCfg; ofertas: { slug: string; nombre: string; imagen: string; off: number }[]; eventos: EventoView[] }) {
+export function PromoPopup({ cfg, ofertas, eventos, destacadosPop = [] }: { cfg: PopupCfg; ofertas: { slug: string; nombre: string; imagen: string; off: number }[]; eventos: EventoView[]; destacadosPop?: { slug: string; nombre: string; imagen: string }[] }) {
   const [show, setShow] = useState(false);
   const [ev, setEv] = useState<EventoView | null>(null);
   const [copied, setCopied] = useState(false);
@@ -184,46 +184,51 @@ export function PromoPopup({ cfg, ofertas, eventos }: { cfg: PopupCfg; ofertas: 
   });
 
   if (!show) return null;
+  const offCupon = (code?: string) => cuponesVisibles.concat(cuponesTodos).find((c) => c.code === code)?.off ?? 0;
   const v = ev
-    ? { tema: ev.tema, etiqueta: `${ev.emoji} ${ev.nombre}`, titulo: ev.popup.titulo, texto: ev.popup.texto, cupon: ev.cupon, cta: ev.popup.cta, href: `/promo/${ev.slug}`, items: ev.prods.slice(0, 4).map((p) => ({ ...p, off: ev.off })), big: `−${ev.off}%` }
-    : { tema: "", etiqueta: cfg.etiqueta, titulo: cfg.titulo, texto: cfg.texto, cupon: cfg.cupon, cta: cfg.cta, href: cfg.ctaHref, items: cfg.mostrarOfertas ? ofertas.slice(0, 4) : [], big: "" };
+    ? { etiqueta: `${ev.emoji} ${ev.nombre}`, titulo: ev.popup.titulo, texto: ev.popup.texto, cupon: ev.cupon, cta: ev.popup.cta, href: `/promo/${ev.slug}`, items: ev.prods.slice(0, 5), off: ev.off }
+    : { etiqueta: cfg.etiqueta, titulo: cfg.titulo, texto: cfg.texto, cupon: cfg.cupon, cta: cfg.cta, href: cfg.ctaHref, items: (cfg.mostrarOfertas && ofertas.length ? ofertas : destacadosPop).slice(0, 5), off: offCupon(cfg.cupon) };
+  const big = v.off > 0 ? `${v.off}% OFF` : "";
+  const sinBig = big && v.titulo.toUpperCase().startsWith(big.toUpperCase()) ? v.titulo.slice(big.length).trim() : v.titulo;
+  const titulo = sinBig ? sinBig.charAt(0).toUpperCase() + sinBig.slice(1) : v.titulo;
+  const ctaTxt = v.cupon && v.off ? `Quiero mi ${v.off}% OFF →` : v.cta;
+  const usar = () => { if (v.cupon) { aplicarCupon(v.cupon); try { navigator.clipboard?.writeText(v.cupon); } catch {} } close(); };
 
   return (
     <div className="pop-wrap no-print" role="dialog" aria-modal="true" aria-labelledby="pop-t" onClick={close}>
-      <div className="pop pop--promo" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
+      <div className="pp" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
         <button className="pop-x" onClick={close} aria-label="Cerrar">✕</button>
-        <div className={`pop-top ${v.tema ? `ev-${v.tema}` : ""}`}>
-          <div className="confetti" aria-hidden>{Array.from({ length: 14 }).map((_, i) => <i key={i} />)}</div>
-          {v.big ? <span className="pop-big">{v.big}</span> : <span className="pop-ic">🎁</span>}
-          <p className="eyebrow">{v.etiqueta}</p>
-          <h3 id="pop-t">{v.titulo}</h3>
-          <p>{v.texto}</p>
-        </div>
-        <div className="pop-body">
-          {v.cupon && (
-            <div className="pop-coupon">
-              <button className="coupon-code" onClick={() => { navigator.clipboard?.writeText(v.cupon!); setCopied(true); }}>
-                <span>{v.cupon}</span><small>{copied ? "¡Copiado!" : "Tocá para copiar"}</small>
+        <div className="pp-l">
+          <div className="pp-band">
+            <img src="/img/marca/isotipo.webp" alt="" width={30} height={30} />
+            <b>Ibarra Insumos</b>
+          </div>
+          <div className="pp-ribbon"><div className="confetti" aria-hidden>{Array.from({ length: 10 }).map((_, i) => <i key={i} />)}</div><span>{v.etiqueta}</span></div>
+          <div className="pp-body">
+            <h3 id="pop-t">{titulo}</h3>
+            {big && <p className="pp-big">{big}</p>}
+            {v.cupon && (
+              <button className="pp-code" onClick={() => { navigator.clipboard?.writeText(v.cupon!); setCopied(true); }}>
+                Código <b>{v.cupon}</b> <small>{copied ? "¡Copiado!" : "Tocá para copiar"}</small>
               </button>
-              <button className="btn btn-primary btn-sm" onClick={() => { aplicarCupon(v.cupon!); close(); }}>Aplicar a mi cotización</button>
-            </div>
-          )}
-          {v.items.length > 0 && (
-            <div className="pop-offers">
-              <p className="pop-offers-t">🔥 En oferta ahora</p>
-              <div className="pop-offers-row">
-                {v.items.map((o) => (
-                  <Link key={o.slug} href={`/producto/${o.slug}`} className="pop-offer" onClick={close}>
-                    <span className="b b-hot">−{o.off}%</span>
-                    <img src={o.imagen} alt={o.nombre} />
-                    <small>{o.nombre}</small>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-          <Link className="btn btn-gold btn-block btn-shine" href={v.href} onClick={close}>{v.cta}</Link>
-          <button className="pop-skip" onClick={close}>Ahora no, gracias</button>
+            )}
+            {v.cupon
+              ? <button className="pp-cta" onClick={usar}>{ctaTxt}</button>
+              : <Link className="pp-cta" href={v.href} onClick={close}>{ctaTxt}</Link>}
+            <p className="pp-txt">{v.texto}</p>
+            <button className="pp-skip" onClick={close}>Seguir mirando</button>
+          </div>
+        </div>
+        <div className="pp-r" aria-hidden="true">
+          <div className="pp-stage">
+            {v.items.map((o, i) => (
+              <Link key={o.slug} href={`/producto/${o.slug}`} onClick={close} className={`pp-prod pp-prod--${i + 1}`} tabIndex={-1}>
+                <img src={o.imagen} alt="" />
+                {i < 2 && <span className="pp-bow">🎀</span>}
+              </Link>
+            ))}
+            <span className="pp-podium pp-podium--1" /><span className="pp-podium pp-podium--2" /><span className="pp-podium pp-podium--3" />
+          </div>
         </div>
       </div>
     </div>
