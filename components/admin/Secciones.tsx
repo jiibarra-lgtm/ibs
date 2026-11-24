@@ -311,7 +311,7 @@ export function Plantillas({ sb, ok, img, nombre, inicial }: { sb: SupabaseClien
 
   return (
     <>
-      <PageHead title="Apariencia" desc="Elegí una plantilla y se aplica a toda la web en segundos. Podés volver a la clásica cuando quieras.">
+      <PageHead title="Apariencia" desc="Elegí una plantilla y se aplica a toda la web en segundos. Todas mantienen los colores de la marca.">
         <a className="ad-btn ad-btn--ghost" href="/" target="_blank" rel="noopener">Ver la web</a>
       </PageHead>
 
@@ -338,12 +338,7 @@ export function Plantillas({ sb, ok, img, nombre, inicial }: { sb: SupabaseClien
 
       <div className="ad-split">
         <Card title="Personalizar" desc={temaActual ? `Partiendo de “${temaActual.nombre}”. Ajustá lo que quieras y publicá.` : "Diseño personalizado."}>
-          {([["colorPrincipal", "Color principal", "Header, botones, secciones oscuras"], ["colorAcento", "Color de acento", "Etiquetas, barra superior, botón catálogo"], ["colorFondo", "Color de fondo", "Fondo general"]] as const).map(([k, l, d]) => (
-            <div key={k} className="tp-field">
-              <div><b>{l}</b><small>{d}</small></div>
-              <label className="ad-color"><input type="color" value={edit[k]} onChange={(e) => setEdit({ ...edit, [k]: e.target.value })} /><code>{edit[k]}</code></label>
-            </div>
-          ))}
+          <p className="ad-an-vacio">Los colores de la marca (verde, dorado y crema) quedan fijos en todas las plantillas.</p>
           <div className="tp-field">
             <div><b>Redondeo</b><small>Esquinas de tarjetas y botones</small></div>
             <div className="ad-range"><input type="range" min={0} max={28} value={edit.redondeo} onChange={(e) => setEdit({ ...edit, redondeo: +e.target.value })} /><b>{edit.redondeo}px</b></div>

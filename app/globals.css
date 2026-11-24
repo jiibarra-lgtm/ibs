@@ -1348,3 +1348,7 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .tp-mini--xl .tp-card em { font-size: 10px; padding: 5px; }
 .tp-field { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 6px 0; border-bottom: 1px solid var(--ln); }
 .tp-field small { display: block; color: var(--mu); font-size: .78rem; }
+/* colores de marca en elementos nuevos */
+.pp-bow { top: -10px; right: -6px; font-size: .62rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-head); background: var(--gold); color: #fff; padding: 4px 8px; border-radius: 999px; filter: none; box-shadow: 0 4px 10px -4px rgba(0,0,0,.3); }
+.pk-tag { background: var(--gold); color: #fff; }
+.pp-ribbon span::first-letter { color: inherit; }

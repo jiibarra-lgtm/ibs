@@ -224,7 +224,7 @@ export function PromoPopup({ cfg, ofertas, eventos, destacadosPop = [] }: { cfg:
             {v.items.map((o, i) => (
               <Link key={o.slug} href={`/producto/${o.slug}`} onClick={close} className={`pp-prod pp-prod--${i + 1}`} tabIndex={-1}>
                 <img src={o.imagen} alt="" />
-                {i < 2 && <span className="pp-bow">🎀</span>}
+                {i < 2 && <span className="pp-bow">Oferta</span>}
               </Link>
             ))}
             <span className="pp-podium pp-podium--1" /><span className="pp-podium pp-podium--2" /><span className="pp-podium pp-podium--3" />
