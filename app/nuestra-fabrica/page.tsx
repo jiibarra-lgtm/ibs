@@ -65,7 +65,6 @@ export default async function Page() {
           </div>
           <div className="fab-gallery reveal">
             <figure><img src="/img/marca/planta.webp" alt="Frente de la planta de Ibarra Insumos con la flota de reparto" loading="lazy" /><figcaption>La planta</figcaption></figure>
-            <figure><img src="/img/marca/deposito.webp" alt="Depósito de Ibarra Insumos con stock de productos de limpieza" loading="lazy" /><figcaption>El depósito</figcaption></figure>
             <figure><img src="/img/marca/camioneta.webp" alt="Camioneta de reparto propio de Ibarra Insumos" loading="lazy" /><figcaption>Reparto propio</figcaption></figure>
           </div>
         </div>

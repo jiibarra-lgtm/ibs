@@ -1097,7 +1097,7 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .shared-item small { display: block; color: var(--muted); font-size: .76rem; }
 
 /* Páginas de empresa */
-.fab-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.fab-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
 .fab-gallery figure { margin: 0; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 14px 30px -20px rgba(0,0,0,.3); }
 .fab-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 .fab-gallery figcaption { padding: 10px 14px; font-weight: 700; color: var(--teal); font-size: .9rem; }
