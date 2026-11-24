@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { BARRIOS, ZONAS, km } from "@/lib/zonas";
 import s from "@/components/seo/landing.module.css";
+import { LazyVideo } from "@/components/Fx";
 
 export const metadata: Metadata = {
   title: "Zonas de entrega en CABA: los 48 barrios",
@@ -24,6 +25,19 @@ export default function Zonas() {
           <p className="eyebrow">Reparto propio · 24–48 hs hábiles</p>
           <h1>Entregamos productos de limpieza en los 48 barrios de CABA</h1>
           <p>Desde nuestra planta en Parque Avellaneda (Comuna 9) llegamos con camionetas propias a toda la Ciudad y al Gran Buenos Aires. Elegí tu barrio.</p>
+        </div>
+      </section>
+      <section className="ev">
+        <div className="wrap ev-grid">
+          <div className="ev-media">
+            <LazyVideo className="ev-video" src="/video/reparto.mp4" poster="/video/reparto-poster.webp" label="Carga de un pedido en la camioneta de reparto de Ibarra Insumos" />
+            <span className="ev-tag">Reparto propio</span>
+          </div>
+          <div className="ev-copy">
+            <p className="eyebrow">Así sale tu pedido</p>
+            <h2 className="section-title">Del depósito <em>a tu puerta</em></h2>
+            <p>Armamos el pedido en nuestra planta de Parque Avellaneda y lo llevamos con camionetas propias a cualquier barrio de CABA y del Gran Buenos Aires, en 24 a 48 horas hábiles.</p>
+          </div>
         </div>
       </section>
       <section className="section" style={{ paddingTop: 40 }}>

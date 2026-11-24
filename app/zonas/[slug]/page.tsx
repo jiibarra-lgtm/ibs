@@ -6,6 +6,7 @@ import { site, waLink } from "@/lib/site";
 import { escalas } from "@/lib/promos";
 import { ZONAS, contenido, getZona } from "@/lib/zonas";
 import ProductCard from "@/components/ProductCard";
+import { LazyVideo } from "@/components/Fx";
 import s from "@/components/seo/landing.module.css";
 
 export const dynamicParams = false;
@@ -92,6 +93,25 @@ export default async function ZonaPage({ params }: { params: Promise<{ slug: str
                 <div className={s.chips}>{cs.map((k) => <Link key={k.slug} className={s.chip} href={`/productos/${k.slug}`}>{k.icono} {k.nombre}</Link>)}</div>
               </section>
             )}
+          </div>
+        </div>
+      </section>
+
+      <section className="ev">
+        <div className="wrap ev-grid">
+          <div className="ev-media">
+            <LazyVideo className="ev-video" src="/video/reparto.mp4" poster="/video/reparto-poster.webp" label={`Carga de un pedido en la camioneta de Ibarra Insumos para entregar en ${b.nombre}`} />
+            <span className="ev-tag">Reparto propio</span>
+          </div>
+          <div className="ev-copy">
+            <p className="eyebrow">Así sale tu pedido</p>
+            <h2 className="section-title">De nuestro depósito <em>a {b.nombre}</em></h2>
+            <p>Preparamos el pedido en Parque Avellaneda, lo cargamos en nuestras camionetas y te lo entregamos en 24 a 48 horas hábiles, sin intermediarios.</p>
+            <ul className="ev-list">
+              <li>Camionetas propias, sin terceros</li>
+              <li>Entrega de lunes a viernes</li>
+              <li>Factura A o B con el pedido</li>
+            </ul>
           </div>
         </div>
       </section>

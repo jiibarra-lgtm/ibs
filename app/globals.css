@@ -1084,7 +1084,7 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
 .g-hero { aspect-ratio: auto; height: clamp(180px, 28vw, 280px); overflow: hidden; }
 .g-hero img { height: 80%; max-height: 230px; width: auto; }
 
-.about-video { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 30px 60px -25px rgba(0,0,0,.35); background: #e8e2d4; }
+.about-video { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 30px 60px -25px rgba(0,0,0,.35); background: #e8e2d4; }
 
 /* Envío gratis en el carrito */
 .envio { position: relative; background: #eef6f3; border: 1px solid #cfe5dd; border-radius: 12px; padding: 10px 12px; font-size: .86rem; color: var(--teal); overflow: hidden; }

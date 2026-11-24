@@ -312,7 +312,7 @@ export default async function Home() {
       {on("nosotros") && (
       <section className="section section--white" id="nosotros">
         <div className="wrap split">
-          <div className="reveal reveal-left"><video className="about-video" src="/video/planta.mp4" poster="/video/planta-poster.webp" autoPlay muted loop playsInline preload="metadata" width={1152} height={576} aria-label="Vista aérea de la planta y depósito de Ibarra Insumos" /></div>
+          <div className="reveal reveal-left"><LazyVideo className="about-video" src="/video/deposito.mp4" poster="/video/deposito-poster.webp" label="Depósito de Ibarra Insumos con stock en racks y camioneta de reparto lista para cargar" /></div>
           <div className="reveal">
             <p className="eyebrow">Nosotros</p>
             <h2 className="section-title">Fabricantes y distribuidores desde hace más de 40 años</h2>

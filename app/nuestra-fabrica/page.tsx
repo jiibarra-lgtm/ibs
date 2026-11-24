@@ -22,12 +22,12 @@ const etapas = [
 const videoLd = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  name: "Vista aérea de la planta y depósito de Ibarra Insumos",
-  description: "Recorrido aéreo por la planta, el depósito y la flota de reparto de Ibarra Insumos, fabricantes y distribuidores de productos de limpieza.",
-  thumbnailUrl: [`${site.url}/video/planta-poster.webp`],
-  uploadDate: "2026-11-20",
-  duration: "PT6S",
-  contentUrl: `${site.url}/video/planta.mp4`,
+  name: "Recorrido por la planta de Ibarra Insumos",
+  description: "Recorrido por el interior de la planta de Ibarra Insumos, fabricantes y distribuidores de productos de limpieza, con las líneas de producción y la flota de reparto.",
+  thumbnailUrl: [`${site.url}/video/fabrica-poster.webp`],
+  uploadDate: "2026-11-24",
+  duration: "PT10S",
+  contentUrl: `${site.url}/video/fabrica.mp4`,
 };
 
 export default async function Page() {
@@ -39,7 +39,7 @@ export default async function Page() {
       <section className="section">
         <div className="wrap split">
           <div className="reveal reveal-left">
-            <video className="about-video" src="/video/planta.mp4" poster="/video/planta-poster.webp" autoPlay muted loop playsInline preload="metadata" width={1152} height={576} aria-label="Vista aérea de la planta de Ibarra Insumos" />
+            <video className="about-video" src="/video/fabrica.mp4" poster="/video/fabrica-poster.webp" autoPlay muted loop playsInline preload="metadata" width={1280} height={720} aria-label="Recorrido por el interior de la planta de Ibarra Insumos: líneas de producción y camioneta de reparto" />
           </div>
           <div className="reveal">
             <p className="eyebrow">De la planta a tu institución</p>
