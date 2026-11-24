@@ -39,7 +39,7 @@ export default async function Home() {
 
       {/* PORTADA: planta y flota propia */}
       <section className="hf">
-        <img className="hf-bg" src="/img/marca/planta.webp" srcSet="/img/marca/planta-800.webp 800w, /img/marca/planta.webp 1400w" sizes="100vw" alt="Planta de Ibarra Insumos en Parque Avellaneda con la flota de reparto propia" fetchPriority="high" />
+        <video className="hf-bg" src="/video/planta.mp4" poster="/img/marca/planta.webp" autoPlay muted loop playsInline preload="auto" aria-label="Vista aérea de la planta de Ibarra Insumos en Parque Avellaneda con la flota de reparto propia" />
         <div className="hf-shade" aria-hidden="true" />
         <span className="hf-slash hf-slash--l" aria-hidden="true" /><span className="hf-slash hf-slash--r" aria-hidden="true" />
         <div className="hf-stk hf-stk--l" aria-hidden="true"><span>Directo</span><span>de fábrica</span></div>

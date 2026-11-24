@@ -13,6 +13,8 @@ const SOLUCIONES: [string, string][] = [
   ["proveedor-de-limpieza-para-consorcios", "Para consorcios"],
   ["insumos-de-limpieza-para-escuelas", "Para escuelas"],
   ["distribuidora-de-limpieza-en-caba-y-gba", "Distribuidora en CABA y GBA"],
+  ["zonas", "Zonas de entrega (48 barrios)"],
+  ["zonas/productos-de-limpieza-por-mayor-en-parque-avellaneda", "Limpieza por mayor en Parque Avellaneda"],
 ];
 
 export default async function Footer() {
