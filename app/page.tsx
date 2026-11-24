@@ -8,7 +8,7 @@ import KitCard, { type KitView } from "@/components/KitCard";
 import { getKitViews } from "@/lib/kits";
 import { getGuias } from "@/lib/guias";
 import { ContactForm } from "@/components/Bits";
-import { CountUp, Countdown, CouponCard, Marquee, OfertasSignup, RendimientoCalc } from "@/components/Fx";
+import { CountUp, Countdown, CouponCard, LazyVideo, Marquee, OfertasSignup, RendimientoCalc } from "@/components/Fx";
 import { HeroSlider } from "@/components/Shop";
 
 const on = (k: string) => secciones[k] !== false;
@@ -142,6 +142,30 @@ export default async function Home() {
         </div>
       </section>
       )}
+
+      {/* EN ACCIÓN: video */}
+      <section className="ev">
+        <div className="wrap ev-grid">
+          <div className="ev-media reveal reveal-left">
+            <LazyVideo className="ev-video" src="/video/limpieza.mp4" poster="/video/limpieza-poster.webp" label="Persona limpiando una oficina con mopa e insumos de Ibarra Insumos" />
+            <span className="ev-tag">Limpieza profesional</span>
+          </div>
+          <div className="ev-copy reveal">
+            <p className="eyebrow">Para oficinas, escuelas, clínicas y consorcios</p>
+            <h2 className="section-title">Productos que se notan <em>en cada rincón</em></h2>
+            <p>Químicos concentrados, papeles para baños de alto tránsito y equipamiento pensado para quien limpia todos los días. Todo directo de fábrica y con entrega en 24–48 hs.</p>
+            <ul className="ev-list">
+              <li>Concentrados que rinden más por litro</li>
+              <li>Stock permanente para no quedarte sin nada</li>
+              <li>Kits armados por rubro con descuento</li>
+            </ul>
+            <div className="hero-ctas">
+              <Link className="btn btn-gold btn-shine" href="/kits">Ver kits por rubro</Link>
+              <Link className="btn btn-glass" href="/productos">Ver catálogo</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* COMBOS */}
       {on("combos") && (

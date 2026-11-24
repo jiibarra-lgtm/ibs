@@ -232,3 +232,19 @@ export function OfertasSignup() {
     </form>
   );
 }
+
+/** Video que se carga y reproduce recién cuando entra en pantalla */
+export function LazyVideo({ src, poster, className, label }: { src: string; poster: string; className?: string; label: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setOn(true); v.play().catch(() => {}); } else v.pause();
+    }, { rootMargin: "200px" });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+  return <video ref={ref} className={className} src={on ? src : undefined} poster={poster} muted loop playsInline preload="none" aria-label={label} />;
+}

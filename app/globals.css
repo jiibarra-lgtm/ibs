@@ -1383,3 +1383,26 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
   .pk-cta { font-size: .86rem; letter-spacing: .02em; padding-right: 64px; }
   .pk-extra { padding: 8px 12px; }
 }
+
+/* ===== Sección con video "en acción" ===== */
+.ev { background: var(--teal); color: #fff; padding: clamp(56px, 8vw, 96px) 0; position: relative; overflow: hidden; }
+.ev::before { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--gold) 30%, transparent), transparent 70%); }
+.ev-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; position: relative; }
+.ev-media { position: relative; }
+.ev-video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--radius) + 8px); box-shadow: 0 30px 60px -24px rgba(0,0,0,.55); background: #0e2b27; display: block; }
+.ev-media::after { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 2px solid var(--gold); border-radius: calc(var(--radius) + 8px); z-index: -1; }
+.ev-tag { position: absolute; left: 16px; bottom: 16px; background: var(--gold); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; }
+.ev-copy { display: grid; gap: 14px; }
+.ev-copy .eyebrow { color: var(--gold-2); }
+.ev-copy .section-title { color: #fff; }
+.ev-copy .section-title em { font-style: italic; font-weight: 500; color: var(--gold-2); }
+.ev-copy > p { color: rgba(255,255,255,.82); }
+.ev-list { list-style: none; display: grid; gap: 8px; padding: 0; }
+.ev-list li { display: flex; gap: 10px; align-items: center; font-weight: 600; }
+.ev-list li::before { content: "✓"; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--gold); color: #fff; font-size: .75rem; flex: none; }
+@media (max-width: 860px) {
+  .ev-grid { grid-template-columns: 1fr; }
+  .ev-media::after { inset: 10px -10px -10px 10px; }
+  .ev .hero-ctas { flex-direction: column; }
+  .ev .hero-ctas .btn { width: 100%; justify-content: center; }
+}
