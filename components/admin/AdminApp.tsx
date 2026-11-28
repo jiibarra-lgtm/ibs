@@ -7,10 +7,11 @@ import { SB_BUCKET } from "@/lib/supabase";
 import type { Categoria, Producto } from "@/lib/catalog";
 import type tiendaJson from "@/data/tienda.json";
 import { Card, Field, Icon, PageHead, Row, Toggle } from "./ui";
+import Costos from "./Costos";
 
 type Tienda = typeof tiendaJson;
 type Sec =
-  | "inicio" | "productos" | "categorias" | "combos" | "precios" | "promociones"
+  | "inicio" | "productos" | "categorias" | "combos" | "precios" | "costos" | "promociones"
   | "home" | "barra" | "popup" | "eventos" | "guias" | "animaciones" | "apariencia" | "testimonios" | "medios"
   | "cotizaciones" | "analitica" | "usuarios" | "configuracion";
 
@@ -21,6 +22,7 @@ const NAV: { grupo: string; items: { id: Sec; label: string; icon: string }[] }[
     { id: "categorias", label: "Categorías", icon: "list" },
     { id: "combos", label: "Kits", icon: "gift" },
     { id: "precios", label: "Precios y escalas", icon: "dollar" },
+    { id: "costos", label: "Costos", icon: "receipt" },
     { id: "promociones", label: "Promociones", icon: "tag" },
   ] },
   { grupo: "Contenido", items: [
@@ -376,6 +378,9 @@ function AdminPanel(props: Props & { sesion: AdminSession }) {
               </Card>
             </>
           )}
+
+          {/* ───────── COSTOS (del sistema de gestión) ───────── */}
+          {sec === "costos" && <Costos token={session.access_token} productos={productos} categorias={categorias} setProds={setProds} ok={ok} />}
 
           {/* ───────── PROMOCIONES ───────── */}
           {sec === "promociones" && (

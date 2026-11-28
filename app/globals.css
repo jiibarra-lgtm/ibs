@@ -1406,3 +1406,23 @@ body:has(.ad) .announce, body:has(.ad) .header, body:has(.ad) .footer, body:has(
   .ev .hero-ctas { flex-direction: column; }
   .ev .hero-ctas .btn { width: 100%; justify-content: center; }
 }
+
+/* Panel · Costos (conectados al sistema de gestión) */
+.ad-item--cost { grid-template-columns: 52px 1fr auto auto; }
+.ad-noimg { width: 52px; height: 52px; border-radius: 10px; background: rgba(148,163,184,.12); }
+.ad-cost-num { display: grid; text-align: right; gap: 1px; white-space: nowrap; }
+.ad-cost-num b { color: #fff; font-size: .95rem; }
+.ad-cost-num small { font-size: .74rem; }
+.ad-costs-sug { display: grid; gap: 6px; max-height: 320px; overflow-y: auto; }
+.ad-costs-sugrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 10px; border: 1px solid var(--ln); border-radius: 10px; }
+.ad-costs-sugrow span { display: grid; min-width: 0; }
+.ad-costs-sugrow b { color: #fff; font-size: .86rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-costs-sugrow small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-costs-pick { display: grid; gap: 6px; }
+.ad-costs-opt { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 9px 12px; border: 1px solid var(--ln); border-radius: 12px; background: var(--bg2); cursor: pointer; transition: border-color .2s; }
+.ad-costs-opt:hover { border-color: rgba(63,182,160,.45); }
+.ad-costs-opt.on { border-color: var(--ac); background: rgba(63,182,160,.1); }
+.ad-costs-opt > span:first-of-type { display: grid; flex: 1; min-width: 0; }
+.ad-costs-opt b { color: #fff; font-size: .86rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-costs-opt small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 700px) { .ad-item--cost { grid-template-columns: 44px 1fr; } .ad-item--cost .ad-cost-num { text-align: left; } }
